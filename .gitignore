@@ -1,46 +1,135 @@
 # =============================================================================
 # Nifty100 Financial Intelligence Platform — .gitignore
+# Merged: project-specific (HEAD) + GitHub Python template (origin/main)
 # =============================================================================
 
-# ── Python ────────────────────────────────────────────────────────────────────
+# ── Python: Byte-compiled / optimized / DLL files ────────────────────────────
 __pycache__/
-*.py[cod]
+*.py[codz]
 *$py.class
 *.so
+
+# ── Python: Distribution / packaging ─────────────────────────────────────────
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ── PyInstaller ───────────────────────────────────────────────────────────────
+*.manifest
+*.spec
+
+# ── Installer logs ────────────────────────────────────────────────────────────
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ── Unit test / coverage reports ─────────────────────────────────────────────
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# ── Translations ──────────────────────────────────────────────────────────────
+*.mo
+*.pot
+
+# ── Jupyter Notebook ──────────────────────────────────────────────────────────
+.ipynb_checkpoints
+notebooks/*.ipynb
+
+# ── IPython ───────────────────────────────────────────────────────────────────
+profile_default/
+ipython_config.py
+
+# ── Virtual Environments ──────────────────────────────────────────────────────
+.env
+.envrc
 .venv/
 venv/
 env/
 ENV/
-*.egg-info/
-dist/
-build/
-.eggs/
+env.bak/
+venv.bak/
 
-# ── Environment & Secrets ─────────────────────────────────────────────────────
-.env
+# ── Package managers (lock files — keep in VCS for apps) ─────────────────────
+# Pipfile.lock
+# uv.lock
+# poetry.lock
+# poetry.toml
+# pdm.lock
+# pdm.toml
+.pdm-python
+.pdm-build/
+.pixi
 
-# ── Data Files (raw data stays local, not in VCS) ─────────────────────────────
-data/raw/*
-data/processed/*
-data/db/*.db
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-!data/db/.gitkeep
+# ── PEP 582 ───────────────────────────────────────────────────────────────────
+__pypackages__/
 
-# ── Output & Reports ──────────────────────────────────────────────────────────
-output/*
-!output/.gitkeep
+# ── Celery ────────────────────────────────────────────────────────────────────
+celerybeat-schedule
+celerybeat.pid
 
-# ── Notebooks checkpoints ─────────────────────────────────────────────────────
-.ipynb_checkpoints/
-notebooks/*.ipynb
+# ── Type checkers ─────────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
 
-# ── Testing & Coverage ────────────────────────────────────────────────────────
-.pytest_cache/
-.coverage
-htmlcov/
-coverage.xml
+# ── Linters / formatters ──────────────────────────────────────────────────────
+.ruff_cache/
+
+# ── Cython debug symbols ──────────────────────────────────────────────────────
+cython_debug/
+
+# ── Documentation ─────────────────────────────────────────────────────────────
+docs/_build/
+/site
+
+# ── Spyder / Rope ─────────────────────────────────────────────────────────────
+.spyderproject
+.spyproject
+.ropeproject
+
+# ── Abstra ────────────────────────────────────────────────────────────────────
+.abstra/
+
+# ── Streamlit ─────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Marimo ────────────────────────────────────────────────────────────────────
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+# ── PyPI configuration ────────────────────────────────────────────────────────
+.pypirc
+
+# ── Misc Python tools ─────────────────────────────────────────────────────────
+tempCodeRunnerFile.py
 
 # ── IDEs & Editors ────────────────────────────────────────────────────────────
 .vscode/
@@ -57,3 +146,25 @@ desktop.ini
 # ── Logs ──────────────────────────────────────────────────────────────────────
 *.log
 logs/
+
+# ── Environment & Secrets ─────────────────────────────────────────────────────
+.env
+
+# ── Database files ────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+
+# ── Project: Data Files (raw data stays local, not in VCS) ───────────────────
+data/raw/*
+data/processed/*
+data/db/
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/db/.gitkeep
+
+# ── Project: Output & Reports ─────────────────────────────────────────────────
+output/*
+!output/.gitkeep
