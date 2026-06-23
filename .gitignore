@@ -1,0 +1,59 @@
+# =============================================================================
+# Nifty100 Financial Intelligence Platform — .gitignore
+# =============================================================================
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Environment & Secrets ─────────────────────────────────────────────────────
+.env
+
+# ── Data Files (raw data stays local, not in VCS) ─────────────────────────────
+data/raw/*
+data/processed/*
+data/db/*.db
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/db/.gitkeep
+
+# ── Output & Reports ──────────────────────────────────────────────────────────
+output/*
+!output/.gitkeep
+
+# ── Notebooks checkpoints ─────────────────────────────────────────────────────
+.ipynb_checkpoints/
+notebooks/*.ipynb
+
+# ── Testing & Coverage ────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── IDEs & Editors ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
