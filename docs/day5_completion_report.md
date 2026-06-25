@@ -1,0 +1,103 @@
+# Nifty100 Financial Intelligence Platform
+# Sprint 1 Day 5 — Completion Report
+
+> **Date**: 25 June 2026
+> **Sprint**: Sprint 1 · Day 5
+> **Focus**: Financial Analytics Queries
+> **Status**: ✅ COMPLETE — 26 Analytical Queries Executed · 26 CSV Reports Generated
+
+---
+
+## Executive Summary
+
+Day 5 unlocks the intelligence layer of the platform. We successfully crafted 26 complex SQL analytical queries to mine the `nifty100.db` data warehouse for actionable financial insights. These queries traverse 12 dimension and fact tables—employing aggregations, window functions, and cross-table joins—to produce strategic business intelligence such as revenue rankings, valuation metrics, and sector distributions. 
+
+All queries are wrapped in an automated Python execution engine that parses and exports the results directly into CSV format for downstream reporting and dashboarding.
+
+---
+
+## Analytics Portfolio (26 Queries)
+
+The analytics engine (`sql/analytics.sql`) supports the following business intelligence vectors:
+
+### 🏆 Top Performers & Growth
+- **01_top_10_revenue_latest_year**: Top 10 companies by revenue (latest year).
+- **02_highest_roe_companies**: Top 15 companies by Return on Equity (ROE).
+- **03_highest_roce_companies**: Top 15 companies by Return on Capital Employed (ROCE).
+- **05_top_10_sales_cagr**: Top 10 companies by compounded sales growth.
+- **06_average_eps_growth**: Average Earnings Per Share across the last 3 available years.
+- **21_highest_eps**: Top 15 absolute EPS earners.
+
+### 💰 Valuation & Market Cap
+- **07_highest_market_cap**: Top 15 companies by Market Cap.
+- **15_market_cap_distribution**: Count of companies bucketed by Market Cap categories.
+- **18_lowest_pe_ratio_value_stocks**: 15 lowest P/E ratio companies (Value investing targets).
+- **19_highest_pb_ratio**: Top 15 companies by Price-to-Book ratio.
+- **24_highest_ev_ebitda**: Top 15 companies by EV/EBITDA ratio.
+- **25_companies_below_book_value**: Value stocks trading below book value (P/B < 1).
+
+### 🏦 Risk, Debt & Efficiency
+- **04_debt_to_equity_ranking**: Ranking companies by lowest Debt-to-Equity ratio.
+- **09_highest_operating_margin**: Top 15 highest Operating Profit Margins (OPM).
+- **10_lowest_debt_companies**: Lowest absolute total debt.
+- **16_zero_debt_companies**: Companies operating with strictly zero debt.
+- **20_best_asset_turnover**: Top 15 companies utilizing assets efficiently.
+- **22_strongest_interest_coverage**: Top 15 companies by Interest Coverage ratio.
+- **12_companies_with_declining_profits**: Identifies companies with YoY net profit decline.
+
+### 💸 Cash Flow & Returns
+- **11_highest_dividend_yield**: Top 15 highest Dividend Yield percentage stocks.
+- **13_top_cash_generators**: Top 15 companies by absolute Free Cash Flow.
+- **17_highest_dividend_payout_ratio**: Top companies returning the most profits as dividends.
+- **23_largest_capex_spenders**: Companies investing heavily via Capital Expenditure.
+
+### 📊 Sectors & Trends
+- **08_sector_wise_market_cap_averages**: Average market cap distributed per broad sector.
+- **26_sector_wise_revenue**: Total and average revenue grouped by broad sector.
+- **14_price_trends_volatility**: Average daily price volatility ((High-Low)/Open).
+
+---
+
+## Infrastructure & Execution
+
+- **Query Runner Engine**: Developed `src/analytics/query_runner.py` capable of seamlessly parsing SQL definition files using comment markers (`-- QUERY: name`) and running them in an isolated transaction.
+- **Export Automation**: All 26 query outputs were instantly converted from Pandas DataFrames to CSVs stored at `output/query_results/`.
+
+---
+
+## Test Results
+
+```
+============================= test session info ================================
+platform win32 -- Python 3.14.5, pytest-9.1.1
+collected 26 items
+
+tests/analytics/test_query_runner.py   26 passed in 1.71s
+
+======================== 26 passed ============================================
+```
+
+**Pass rate: 100% (26/26)**
+
+## Cumulative Sprint 1 Test Count
+
+| Day | Tests Added | Running Total |
+|-----|-------------|---------------|
+| Day 2 | 83 | 83 |
+| Day 3 | 77 | 160 |
+| Day 4 | 31 | 191 |
+| Day 5 | 26 | **217** |
+
+---
+
+## Deliverables
+
+| File | Purpose |
+|------|---------|
+| [sql/analytics.sql](file:///c:/Users/eashi/OneDrive/Documents/GitHub/Nifty100_Financial_Intelligence_Platform/sql/analytics.sql) | The 26 core SQL intelligence queries |
+| [src/analytics/query_runner.py](file:///c:/Users/eashi/OneDrive/Documents/GitHub/Nifty100_Financial_Intelligence_Platform/src/analytics/query_runner.py) | Python SQL execution and CSV export engine |
+| `output/query_results/*.csv` | 26 generated intelligence reports |
+| [tests/analytics/test_query_runner.py](file:///c:/Users/eashi/OneDrive/Documents/GitHub/Nifty100_Financial_Intelligence_Platform/tests/analytics/test_query_runner.py) | 26 tests verifying the parser, connections, and output |
+
+---
+*Report generated by Antigravity Agent — Nifty100 Financial Intelligence Platform, Sprint 1 Day 5*

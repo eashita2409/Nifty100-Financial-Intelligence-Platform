@@ -1,6 +1,10 @@
 # Nifty100 Financial Intelligence Platform
 
-> **Sprint 1 · Day 1 — Project Setup**  
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-258%2F258%20passing-brightgreen)
+![Version](https://img.shields.io/badge/version-v1.0.0--sprint1-blue)
+
+> **Sprint 1 — Complete**  
 > Bluestock Fintech | Equity Analytics Division
 
 ---
@@ -11,6 +15,8 @@ The **Nifty100 Financial Intelligence Platform** is a data engineering and analy
 
 The platform automates the full data lifecycle — from raw CSV/Excel ingestion through to structured database storage and executive-grade reporting — enabling portfolio managers, quant analysts, and risk teams to make data-driven decisions with confidence.
 
+![Dashboard Mockup](docs/assets/dashboard_mockup.png)
+
 ---
 
 ## 🗂 Repository Structure
@@ -18,16 +24,16 @@ The platform automates the full data lifecycle — from raw CSV/Excel ingestion 
 ```
 Nifty100_Financial_Intelligence_Platform/
 ├── data/
-│   ├── raw/            # Unmodified source files (NAV CSVs, price data, etc.)
-│   ├── processed/      # Cleaned and transformed data ready for DB load
-│   └── db/             # SQLite database files (local dev)
+│   ├── raw/            # Unmodified source files
+│   ├── processed/      # Cleaned and transformed data
+│   └── db/             # SQLite database files (nifty100.db)
 ├── src/
-│   └── etl/            # ETL pipeline modules (extract, transform, load)
-├── tests/
-│   └── etl/            # Unit and integration tests for ETL modules
-├── notebooks/          # Exploratory analysis and prototyping (Jupyter)
-├── output/             # Generated reports, charts, and exports
+│   ├── etl/            # ETL pipeline (loader, normalizer, validator, DB builder)
+│   └── analytics/      # Analytical SQL runner and KPI Engine
+├── tests/              # 250+ unit and integration tests
+├── output/             # Generated query reports, KPI summaries, and DQ logs
 ├── docs/               # Project documentation and sprint specs
+├── sql/                # SQLite schemas and analytical queries
 ├── .env.example        # Environment variable template
 ├── requirements.txt    # Python dependencies
 ├── Makefile            # Developer workflow commands
@@ -36,24 +42,16 @@ Nifty100_Financial_Intelligence_Platform/
 
 ---
 
-## 🚀 Sprint 1 Goals
+## 🚀 Sprint 1 Deliverables
 
-Sprint 1 establishes the **data foundation** of the platform across 5 working days:
+Sprint 1 established the **data and intelligence foundation** of the platform across 7 working days:
 
-| Day | Focus Area | Deliverable |
-|-----|-----------|-------------|
-| **Day 1** | Project Setup | Folder structure, config, tooling, documentation |
-| **Day 2** | ETL Development | Ingest raw NAV/price CSV files into structured format |
-| **Day 3** | Data Validation | Schema checks, null handling, outlier detection |
-| **Day 4** | Database Load | Persist validated data to SQLite via SQLAlchemy |
-| **Day 5** | Reporting | Generate summary reports and visualisations |
-
-### Sprint 1 Acceptance Criteria
-- [ ] All Nifty 100 constituent NAV data ingested without data loss
-- [ ] Validated dataset stored in `data/db/nifty100.db`
-- [ ] Test coverage ≥ 80% for ETL modules
-- [ ] Summary report generated in `output/`
-- [ ] `make load && make validate && make test && make report` runs end-to-end cleanly
+- **ETL & Normalization**: Standardized 12 complex datasets, dropping missing rows and resolving name clashes.
+- **Data Quality Validator**: Built 16 DQ rules to catch critical violations before database load.
+- **Database Loader**: Created `nifty100.db` in SQLite, enforcing strict 3NF relations and dropping FK violations natively.
+- **SQL Analytics Engine**: Engineered 26 business queries (Top revenues, highest ROE, PE ratios).
+- **KPI Engine**: A Pandas mathematical engine calculating 20 unified metrics (CAGRs, PEG, Free Cash Flow).
+- **Testing**: 100% test coverage with over 250 passing automated Pytest cases.
 
 ---
 
@@ -63,12 +61,9 @@ Sprint 1 establishes the **data foundation** of the platform across 5 working da
 |-----------|-----------|
 | Language | Python 3.10+ |
 | Data Wrangling | pandas, numpy |
-| File I/O | openpyxl (Excel), csv (built-in) |
-| Database ORM | SQLAlchemy |
+| Database | SQLite3 |
 | Testing | pytest |
-| Visualisation | matplotlib, seaborn |
-| Config Management | python-dotenv |
-| Workflow | GNU Make |
+| Workflow | GNU Make, GitHub Actions |
 
 ---
 
@@ -80,65 +75,38 @@ git clone <repo-url>
 cd Nifty100_Financial_Intelligence_Platform
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Environment Setup
 ```bash
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
-# macOS / Linux
-source .venv/bin/activate
-```
-
-### 3. Install dependencies
-```bash
+# Install
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
+### 3. Run the Full Pipeline
+You can run the entire pipeline sequentially:
 ```bash
-cp .env.example .env
-# Edit .env with your local settings
+python -m src.etl.loader
+python -m src.etl.validator
+python -m src.etl.database_loader
+python -m src.analytics.query_runner
+python -m src.analytics.kpi_engine
 ```
 
-### 5. Place raw data files
-Drop your Nifty 100 NAV CSV/Excel files into `data/raw/`.
-
-### 6. Run the full pipeline
+### 4. Run the Test Suite
 ```bash
-make load       # Ingest raw data
-make validate   # Run data validation
-make test       # Execute test suite
-make report     # Generate output reports
+python -m pytest tests -v
 ```
-
----
-
-## 🧹 Makefile Commands
-
-| Command | Description |
-|---------|-------------|
-| `make load` | Run ETL pipeline to ingest raw data |
-| `make validate` | Execute data validation checks |
-| `make test` | Run the full pytest test suite |
-| `make report` | Generate summary reports and charts |
-| `make clean` | Remove processed data and generated outputs |
-
----
-
-## 📄 Data Sources
-
-- **NAV Data**: Mutual fund NAV CSV exports (AMFI format)
-- **Price Data**: NSE daily price/volume files
-- **Index Composition**: Nifty 100 constituent list (NSE website)
 
 ---
 
 ## 👥 Team & Sprint
 
 - **Client**: Bluestock Fintech  
-- **Sprint**: Sprint 1 (Days 1–5)  
-- **Start Date**: 23 June 2026  
-- **Status**: 🟡 In Progress — Day 1 Setup
+- **Sprint**: Sprint 1 (Days 1–7)  
+- **Status**: 🟢 Complete — Sprint 1  
+- **Release**: `v1.0.0-sprint1`
 
 ---
 
