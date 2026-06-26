@@ -140,6 +140,13 @@ CREATE TABLE IF NOT EXISTS financial_ratios (
     dividend_payout_ratio_pct REAL,
     total_debt_cr REAL,
     cash_from_operations_cr REAL,
+    return_on_capital_employed_pct REAL,
+    return_on_assets_pct REAL,
+    sector_relative_roce BOOLEAN,
+    high_leverage_flag BOOLEAN,
+    debt_free_label BOOLEAN,
+    icr_warning_flag BOOLEAN,
+    net_debt_cr REAL,
     FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE,
     UNIQUE (company_id, year),
     CHECK (year >= 1990 OR year IS NULL)
