@@ -21,6 +21,15 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
+edge_log_path = Path("output/ratio_edge_cases.log")
+edge_logger = logging.getLogger("RatioEdgeCases")
+edge_logger.setLevel(logging.INFO)
+if edge_logger.hasHandlers():
+    edge_logger.handlers.clear()
+edge_fh = logging.FileHandler(edge_log_path)
+edge_fh.setFormatter(formatter)
+edge_logger.addHandler(edge_fh)
+
 def calculate_net_profit_margin(net_profit: Optional[float], sales: Optional[float]) -> Optional[float]:
     """Calculate Net Profit Margin."""
     if not sales or sales == 0:
@@ -46,9 +55,11 @@ def calculate_return_on_equity(net_profit: Optional[float], equity_capital: Opti
         return None
     return round(((net_profit or 0) / denominator) * 100, 2)
 
-def calculate_return_on_capital_employed(ebit: Optional[float], equity_capital: Optional[float], reserves: Optional[float], borrowings: Optional[float], is_financial_sector: bool = False) -> Tuple[Optional[float], bool]:
+def calculate_return_on_capital_employed(ebit: Optional[float], equity_capital: Optional[float], reserves: Optional[float], borrowings: Optional[float], is_financial_sector: bool = False, company_id: Optional[str] = None, year: Optional[float] = None) -> Tuple[Optional[float], bool]:
     """Calculate Return on Capital Employed."""
     if is_financial_sector:
+        if company_id and year:
+            edge_logger.info(f"Anomaly Category: ROCE_Financials | {company_id} ({year}) | Bank ROCE is not applicable. Skipped.")
         return None, True
         
     denominator = (equity_capital or 0) + (reserves or 0) + (borrowings or 0)
@@ -95,7 +106,7 @@ def populate_profitability_ratios(db_path: str):
         is_financial = row['broad_sector'] == 'Financials'
         
         roce, sector_rel = calculate_return_on_capital_employed(
-            ebit, row['equity_capital'], row['reserves'], row['borrowings'], is_financial
+            ebit, row['equity_capital'], row['reserves'], row['borrowings'], is_financial, row['company_id'], row['year']
         )
         
         roa = calculate_return_on_assets(row['net_profit'], row['total_assets'])

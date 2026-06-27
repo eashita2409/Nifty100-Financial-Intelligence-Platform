@@ -1,10 +1,10 @@
 # Nifty100 Financial Intelligence Platform
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Tests](https://img.shields.io/badge/tests-258%2F258%20passing-brightgreen)
-![Version](https://img.shields.io/badge/version-v1.0.0--sprint1-blue)
+![Tests](https://img.shields.io/badge/tests-350%2B%20passing-brightgreen)
+![Version](https://img.shields.io/badge/version-v2.0.0--sprint2-blue)
 
-> **Sprint 1 — Complete**  
+> **Sprint 2 — Complete**  
 > Bluestock Fintech | Equity Analytics Division
 
 ---
@@ -42,16 +42,18 @@ Nifty100_Financial_Intelligence_Platform/
 
 ---
 
-## 🚀 Sprint 1 Deliverables
+## 🚀 Deliverables
 
-Sprint 1 established the **data and intelligence foundation** of the platform across 7 working days:
+Sprint 1 & Sprint 2 established the **data and intelligence foundation** of the platform:
 
 - **ETL & Normalization**: Standardized 12 complex datasets, dropping missing rows and resolving name clashes.
 - **Data Quality Validator**: Built 16 DQ rules to catch critical violations before database load.
 - **Database Loader**: Created `nifty100.db` in SQLite, enforcing strict 3NF relations and dropping FK violations natively.
+- **Ratio Engine (Sprint 2)**: Added complete financial metrics modules (Profitability, Leverage, CAGRs, Cash Flows).
+- **Edge Case Handling (Sprint 2)**: Handled bank-specific ROCE anomalies and leverage suppressions systematically.
 - **SQL Analytics Engine**: Engineered 26 business queries (Top revenues, highest ROE, PE ratios).
 - **KPI Engine**: A Pandas mathematical engine calculating 20 unified metrics (CAGRs, PEG, Free Cash Flow).
-- **Testing**: 100% test coverage with over 250 passing automated Pytest cases.
+- **Testing**: 100% test coverage with over 350+ passing automated Pytest cases.
 
 ---
 
@@ -104,9 +106,9 @@ python -m pytest tests -v
 ## 👥 Team & Sprint
 
 - **Client**: Bluestock Fintech  
-- **Sprint**: Sprint 1 (Days 1–7)  
-- **Status**: 🟢 Complete — Sprint 1  
-- **Release**: `v1.0.0-sprint1`
+- **Sprint**: Sprint 2 
+- **Status**: 🟢 Complete — Sprint 2  
+- **Release**: `v2.0.0-sprint2`
 
 ---
 
