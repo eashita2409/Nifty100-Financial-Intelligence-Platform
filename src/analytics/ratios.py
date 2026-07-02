@@ -107,11 +107,13 @@ def populate_profitability_ratios(db_path: str):
     updates = []
     
     for _, row in df.iterrows():
+        year_val = "TTM" if pd.isna(row['year']) else row['year']
+        
         npm = calculate_net_profit_margin(row['net_profit'], row['sales'])
         
         opm = calculate_operating_profit_margin(
             row['operating_profit'], row['sales'], row['opm_percentage'], 
-            row['company_id'], row['year']
+            row['company_id'], year_val
         )
         
         roe = calculate_return_on_equity(row['net_profit'], row['equity_capital'], row['reserves'])
@@ -120,7 +122,7 @@ def populate_profitability_ratios(db_path: str):
         is_financial = row['broad_sector'] == 'Financials'
         
         roce, sector_rel = calculate_return_on_capital_employed(
-            ebit, row['equity_capital'], row['reserves'], row['borrowings'], is_financial, row['company_id'], row['year'], row['company_name']
+            ebit, row['equity_capital'], row['reserves'], row['borrowings'], is_financial, row['company_id'], year_val, row['company_name']
         )
         
         roa = calculate_return_on_assets(row['net_profit'], row['total_assets'])
@@ -132,7 +134,7 @@ def populate_profitability_ratios(db_path: str):
                 log_entry = {
                     "company_id": row['company_id'],
                     "company_name": row['company_name'],
-                    "year": row['year'],
+                    "year": year_val,
                     "metric": "ROCE",
                     "computed_value": roce,
                     "source_value": float(row['source_roce']),
@@ -149,7 +151,7 @@ def populate_profitability_ratios(db_path: str):
                 log_entry = {
                     "company_id": row['company_id'],
                     "company_name": row['company_name'],
-                    "year": row['year'],
+                    "year": year_val,
                     "metric": "ROE",
                     "computed_value": roe,
                     "source_value": float(row['source_roe']),

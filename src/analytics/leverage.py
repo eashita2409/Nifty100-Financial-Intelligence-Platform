@@ -109,12 +109,14 @@ def populate_leverage_ratios(db_path: str):
     for _, row in df.iterrows():
         is_financial = row['broad_sector'] == 'Financials'
         
+        year_val = "TTM" if pd.isna(row['year']) else row['year']
+        
         dte = calculate_debt_to_equity(row['borrowings'], row['equity_capital'], row['reserves'])
-        hl_flag = is_high_leverage(dte, is_financial=is_financial, company_id=row['company_id'], year=row['year'], company_name=row['company_name'])
+        hl_flag = is_high_leverage(dte, is_financial=is_financial, company_id=row['company_id'], year=year_val, company_name=row['company_name'])
         
         ebit = (row['profit_before_tax'] or 0) + (row['interest'] or 0)
         icr = calculate_interest_coverage_ratio(ebit, row['interest'])
-        icr_warn = is_icr_warning(icr, is_financial=is_financial, company_id=row['company_id'], year=row['year'], company_name=row['company_name'])
+        icr_warn = is_icr_warning(icr, is_financial=is_financial, company_id=row['company_id'], year=year_val, company_name=row['company_name'])
         
         df_label = is_debt_free(row['borrowings'])
         
