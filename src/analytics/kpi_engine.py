@@ -44,13 +44,13 @@ class KPIEngine:
         logger.info("Fetching data from Data Warehouse...")
         
         # Fetch necessary tables
-        companies = pd.read_sql_query("SELECT id as company_id, company_name, roce_percentage as roce, roe_percentage as roe FROM companies", self.conn)
+        companies = pd.read_sql_query("SELECT id as company_id, company_name, roce_percentage as source_roce, roe_percentage as source_roe FROM companies", self.conn)
         pnl = pd.read_sql_query("SELECT company_id, year, sales, net_profit, eps, opm_percentage as operating_margin FROM profitandloss", self.conn)
-        ratios = pd.read_sql_query("SELECT company_id, year, debt_to_equity, interest_coverage, net_profit_margin_pct as net_margin, free_cash_flow_cr as fcf FROM financial_ratios", self.conn)
+        ratios = pd.read_sql_query("SELECT company_id, year, debt_to_equity, interest_coverage, net_profit_margin_pct as net_margin, free_cash_flow_cr as fcf, return_on_equity_pct as roe, return_on_capital_employed_pct as roce FROM financial_ratios", self.conn)
         bs = pd.read_sql_query("SELECT company_id, year, other_asset, other_liabilities FROM balancesheet", self.conn)
         mc = pd.read_sql_query("SELECT company_id, year, market_cap_crore, pe_ratio as pe, pb_ratio as pb, dividend_yield_pct as dividend_yield, enterprise_value_crore as enterprise_value FROM market_cap", self.conn)
         cashflow = pd.read_sql_query("SELECT company_id, year, net_cash_flow FROM cashflow", self.conn)
-        analysis = pd.read_sql_query("SELECT company_id, compounded_sales_growth as five_year_cagr FROM analysis", self.conn)
+        analysis = pd.read_sql_query("SELECT company_id, compounded_sales_growth as five_year_cagr FROM analysis WHERE compounded_sales_growth LIKE '5 Years%'", self.conn)
         
         logger.info("Computing Growth Metrics...")
         # Growth Metrics require historical data before filtering for the latest year
@@ -68,8 +68,8 @@ class KPIEngine:
         merged = merged.merge(mc, on=['company_id', 'year'], how='outer')
         merged = merged.merge(cashflow, on=['company_id', 'year'], how='outer')
         
-        # Keep only the latest year per company
-        latest = merged.sort_values('year').groupby('company_id').tail(1).copy()
+        # Keep only the latest valid year per company
+        latest = merged.dropna(subset=['year']).sort_values('year').groupby('company_id').tail(1).copy()
         
         # Merge with non-temporal data (companies, analysis)
         latest = latest.merge(companies, on='company_id', how='left')
@@ -94,10 +94,11 @@ class KPIEngine:
             latest['pe'] / latest['eps_growth']
         )
         
-        # Ensure 5-year CAGR is clean (strip '%' if string)
+        # Ensure 5-year CAGR is clean
         if 'five_year_cagr' in latest.columns:
-            latest['five_year_cagr'] = latest['five_year_cagr'].astype(str).str.replace('%', '', regex=False)
-            latest['five_year_cagr'] = pd.to_numeric(latest['five_year_cagr'], errors='coerce')
+            # Extract number after the colon, e.g., '5 Years: 13%' -> '13'
+            extracted = latest['five_year_cagr'].astype(str).str.extract(r':\s*(-?\d+\.?\d*)', expand=False)
+            latest['five_year_cagr'] = pd.to_numeric(extracted, errors='coerce')
             
         # Select and rename final 20 metrics
         final_cols = [

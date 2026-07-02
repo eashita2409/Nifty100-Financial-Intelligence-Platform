@@ -57,17 +57,20 @@ def test_populate_profitability_ratios(tmp_path):
     conn.execute("CREATE TABLE profitandloss (company_id TEXT, year REAL, sales REAL, operating_profit REAL, opm_percentage REAL, net_profit REAL, profit_before_tax REAL, interest REAL)")
     conn.execute("CREATE TABLE balancesheet (company_id TEXT, year REAL, equity_capital REAL, reserves REAL, borrowings REAL, total_assets REAL)")
     conn.execute("CREATE TABLE sectors (company_id TEXT, broad_sector TEXT)")
+    conn.execute("CREATE TABLE companies (id TEXT, company_name TEXT, roce_percentage REAL, roe_percentage REAL)")
     conn.execute("CREATE TABLE financial_ratios (company_id TEXT, year REAL, net_profit_margin_pct REAL, operating_profit_margin_pct REAL, return_on_equity_pct REAL, return_on_capital_employed_pct REAL, return_on_assets_pct REAL, sector_relative_roce BOOLEAN)")
     
     conn.execute("INSERT INTO profitandloss VALUES ('C1', 2023, 1000, 200, 20.0, 150, 180, 20)")
     conn.execute("INSERT INTO balancesheet VALUES ('C1', 2023, 500, 300, 200, 1200)")
     conn.execute("INSERT INTO sectors VALUES ('C1', 'IT')")
+    conn.execute("INSERT INTO companies VALUES (\'C1\', \'Company 1\', 20.0, 15.0)")
     conn.execute("INSERT INTO financial_ratios (company_id, year) VALUES ('C1', 2023)")
     
     # Financial sector company
     conn.execute("INSERT INTO profitandloss VALUES ('B1', 2023, 2000, 400, 20.0, 300, 350, 50)")
     conn.execute("INSERT INTO balancesheet VALUES ('B1', 2023, 1000, 500, 3000, 5000)")
     conn.execute("INSERT INTO sectors VALUES ('B1', 'Financials')")
+    conn.execute("INSERT INTO companies VALUES (\'B1\', \'Bank 1\', 10.0, 12.0)")
     conn.execute("INSERT INTO financial_ratios (company_id, year) VALUES ('B1', 2023)")
     
     conn.commit()

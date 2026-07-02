@@ -14,7 +14,7 @@ def temp_env(tmp_path):
     conn = sqlite3.connect(db_path)
     conn.execute("CREATE TABLE companies (id TEXT PRIMARY KEY, company_name TEXT, roce_percentage REAL, roe_percentage REAL)")
     conn.execute("CREATE TABLE profitandloss (company_id TEXT, year REAL, sales REAL, net_profit REAL, eps REAL, opm_percentage REAL)")
-    conn.execute("CREATE TABLE financial_ratios (company_id TEXT, year REAL, debt_to_equity REAL, interest_coverage REAL, net_profit_margin_pct REAL, free_cash_flow_cr REAL)")
+    conn.execute("CREATE TABLE financial_ratios (company_id TEXT, year REAL, debt_to_equity REAL, interest_coverage REAL, net_profit_margin_pct REAL, free_cash_flow_cr REAL, return_on_equity_pct REAL, return_on_capital_employed_pct REAL)")
     conn.execute("CREATE TABLE balancesheet (company_id TEXT, year REAL, other_asset REAL, other_liabilities REAL)")
     conn.execute("CREATE TABLE market_cap (company_id TEXT, year REAL, market_cap_crore REAL, pe_ratio REAL, pb_ratio REAL, dividend_yield_pct REAL, enterprise_value_crore REAL)")
     conn.execute("CREATE TABLE cashflow (company_id TEXT, year REAL, net_cash_flow REAL)")
@@ -28,13 +28,13 @@ def temp_env(tmp_path):
     conn.execute("INSERT INTO profitandloss VALUES ('A', 2023, 150, 20, 10, 25)")
     
     # Insert other tables
-    conn.execute("INSERT INTO financial_ratios VALUES ('A', 2023, 1.5, 4.0, 15.0, 50.0)")
+    conn.execute("INSERT INTO financial_ratios VALUES ('A', 2023, 1.5, 4.0, 15.0, 50.0, 20.0, 25.0)")
     conn.execute("INSERT INTO balancesheet VALUES ('A', 2023, 200, 100)")
     conn.execute("INSERT INTO market_cap VALUES ('A', 2022, 1000, 10, 2, 1.5, 1200)")
     conn.execute("INSERT INTO market_cap VALUES ('A', 2023, 2000, 15, 3, 2.0, 2200)")
     conn.execute("INSERT INTO cashflow VALUES ('A', 2022, 30)")
     conn.execute("INSERT INTO cashflow VALUES ('A', 2023, 60)")
-    conn.execute("INSERT INTO analysis VALUES ('A', '12%')")
+    conn.execute("INSERT INTO analysis VALUES ('A', '5 Years: 12%')")
     
     conn.commit()
     conn.close()
@@ -254,7 +254,7 @@ def test_missing_companies_data(clean_engine):
 
 def test_cagr_numeric(clean_engine):
     # Ensure it works if CAGR is already numeric
-    clean_engine.conn.execute("UPDATE analysis SET compounded_sales_growth = '15.5'")
+    clean_engine.conn.execute("UPDATE analysis SET compounded_sales_growth = '5 Years: 15.5'")
     clean_engine.conn.commit()
     df = clean_engine.calculate_kpis()
     assert df.iloc[0]['five_year_cagr'] == 15.5
@@ -289,7 +289,7 @@ def test_missing_balancesheet(clean_engine):
     assert pd.isna(df.iloc[0]['current_ratio'])
 
 def test_cagr_strip_percent(clean_engine):
-    clean_engine.conn.execute("UPDATE analysis SET compounded_sales_growth = '-5%'")
+    clean_engine.conn.execute("UPDATE analysis SET compounded_sales_growth = '5 Years: -5%'")
     clean_engine.conn.commit()
     df = clean_engine.calculate_kpis()
     assert df.iloc[0]['five_year_cagr'] == -5.0
@@ -308,5 +308,5 @@ def test_fcf_pull(clean_engine):
 
 def test_roce_roe_pull(clean_engine):
     df = clean_engine.calculate_kpis()
-    assert df.iloc[0]['roce'] == 15.5
-    assert df.iloc[0]['roe'] == 12.0
+    assert df.iloc[0]['roce'] == 25.0
+    assert df.iloc[0]['roe'] == 20.0

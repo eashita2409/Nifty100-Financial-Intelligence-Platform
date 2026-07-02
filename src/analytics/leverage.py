@@ -11,8 +11,9 @@ edge_logger.setLevel(logging.INFO)
 if edge_logger.hasHandlers():
     edge_logger.handlers.clear()
 edge_fh = logging.FileHandler(edge_log_path)
-edge_fh.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+edge_fh.setFormatter(logging.Formatter('%(message)s'))
 edge_logger.addHandler(edge_fh)
+import json
 
 def calculate_debt_to_equity(borrowings: Optional[float], equity_capital: Optional[float], reserves: Optional[float]) -> Optional[float]:
     """Calculate Debt to Equity Ratio."""
@@ -21,11 +22,22 @@ def calculate_debt_to_equity(borrowings: Optional[float], equity_capital: Option
         return None
     return round((borrowings or 0) / denominator, 2)
 
-def is_high_leverage(debt_to_equity: Optional[float], threshold: float = 2.0, is_financial: bool = False, company_id: Optional[str] = None, year: Optional[float] = None) -> bool:
+def is_high_leverage(debt_to_equity: Optional[float], threshold: float = 2.0, is_financial: bool = False, company_id: Optional[str] = None, year: Optional[float] = None, company_name: Optional[str] = None) -> bool:
     """Flag if Debt to Equity exceeds threshold."""
     if is_financial:
         if company_id and year and debt_to_equity and debt_to_equity > threshold:
-            edge_logger.info(f"Anomaly Category: Leverage_Financials | {company_id} ({year}) | High Leverage warning suppressed for Financial sector (D/E: {debt_to_equity}).")
+            log_entry = {
+                "company_id": company_id,
+                "company_name": company_name or "Unknown",
+                "year": year,
+                "metric": "Debt-to-Equity",
+                "computed_value": debt_to_equity,
+                "source_value": None,
+                "difference": None,
+                "category": "FORMULA_DIFFERENCE",
+                "explanation": "High Leverage warning suppressed for Financial sector."
+            }
+            edge_logger.info(json.dumps(log_entry))
         return False
     if debt_to_equity is None:
         return False
@@ -37,11 +49,22 @@ def calculate_interest_coverage_ratio(ebit: Optional[float], interest: Optional[
         return None
     return round((ebit or 0) / interest, 2)
 
-def is_icr_warning(icr: Optional[float], threshold: float = 1.5, is_financial: bool = False, company_id: Optional[str] = None, year: Optional[float] = None) -> bool:
+def is_icr_warning(icr: Optional[float], threshold: float = 1.5, is_financial: bool = False, company_id: Optional[str] = None, year: Optional[float] = None, company_name: Optional[str] = None) -> bool:
     """Flag if Interest Coverage Ratio is below safe threshold."""
     if is_financial:
         if company_id and year and icr is not None and icr < threshold:
-            edge_logger.info(f"Anomaly Category: Leverage_Financials | {company_id} ({year}) | ICR warning suppressed for Financial sector (ICR: {icr}).")
+            log_entry = {
+                "company_id": company_id,
+                "company_name": company_name or "Unknown",
+                "year": year,
+                "metric": "Interest Coverage Ratio",
+                "computed_value": icr,
+                "source_value": None,
+                "difference": None,
+                "category": "FORMULA_DIFFERENCE",
+                "explanation": "ICR warning suppressed for Financial sector."
+            }
+            edge_logger.info(json.dumps(log_entry))
         return False
     if icr is None:
         # If ICR is None (e.g., zero interest), it's not a warning by default.
@@ -72,10 +95,12 @@ def populate_leverage_ratios(db_path: str):
     SELECT 
         p.company_id, p.year, p.sales, p.profit_before_tax, p.interest,
         b.equity_capital, b.reserves, b.borrowings, b.total_assets,
-        s.broad_sector
+        s.broad_sector,
+        c.company_name
     FROM profitandloss p
     LEFT JOIN balancesheet b ON p.company_id = b.company_id AND p.year = b.year
     LEFT JOIN sectors s ON p.company_id = s.company_id
+    LEFT JOIN companies c ON p.company_id = c.id
     """
     
     df = pd.read_sql_query(query, conn)
@@ -85,11 +110,11 @@ def populate_leverage_ratios(db_path: str):
         is_financial = row['broad_sector'] == 'Financials'
         
         dte = calculate_debt_to_equity(row['borrowings'], row['equity_capital'], row['reserves'])
-        hl_flag = is_high_leverage(dte, is_financial=is_financial, company_id=row['company_id'], year=row['year'])
+        hl_flag = is_high_leverage(dte, is_financial=is_financial, company_id=row['company_id'], year=row['year'], company_name=row['company_name'])
         
         ebit = (row['profit_before_tax'] or 0) + (row['interest'] or 0)
         icr = calculate_interest_coverage_ratio(ebit, row['interest'])
-        icr_warn = is_icr_warning(icr, is_financial=is_financial, company_id=row['company_id'], year=row['year'])
+        icr_warn = is_icr_warning(icr, is_financial=is_financial, company_id=row['company_id'], year=row['year'], company_name=row['company_name'])
         
         df_label = is_debt_free(row['borrowings'])
         

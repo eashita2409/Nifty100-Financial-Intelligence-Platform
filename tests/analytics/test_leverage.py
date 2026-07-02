@@ -56,11 +56,13 @@ def test_populate_leverage_ratios(tmp_path):
     conn.execute("CREATE TABLE balancesheet (company_id TEXT, year REAL, equity_capital REAL, reserves REAL, borrowings REAL, total_assets REAL)")
     conn.execute("CREATE TABLE financial_ratios (company_id TEXT, year REAL, debt_to_equity REAL, high_leverage_flag BOOLEAN, interest_coverage REAL, debt_free_label BOOLEAN, icr_warning_flag BOOLEAN, net_debt_cr REAL, asset_turnover REAL)")
     conn.execute("CREATE TABLE sectors (company_id TEXT, broad_sector TEXT)")
+    conn.execute("CREATE TABLE companies (id TEXT, company_name TEXT, roce_percentage REAL, roe_percentage REAL)")
     
     # Insert dummy data
     conn.execute("INSERT INTO profitandloss VALUES ('C1', 2023, 1000, 200, 50)")
     conn.execute("INSERT INTO balancesheet VALUES ('C1', 2023, 200, 300, 1000, 2000)")
     conn.execute("INSERT INTO sectors VALUES ('C1', 'IT')")
+    conn.execute("INSERT INTO companies VALUES (\'C1\', \'Company 1\', 20.0, 15.0)")
     conn.execute("INSERT INTO financial_ratios (company_id, year) VALUES ('C1', 2023)")
     
     conn.commit()

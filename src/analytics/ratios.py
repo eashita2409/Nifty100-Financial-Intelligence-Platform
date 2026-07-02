@@ -27,8 +27,9 @@ edge_logger.setLevel(logging.INFO)
 if edge_logger.hasHandlers():
     edge_logger.handlers.clear()
 edge_fh = logging.FileHandler(edge_log_path)
-edge_fh.setFormatter(formatter)
+edge_fh.setFormatter(logging.Formatter('%(message)s'))
 edge_logger.addHandler(edge_fh)
+import json
 
 def calculate_net_profit_margin(net_profit: Optional[float], sales: Optional[float]) -> Optional[float]:
     """Calculate Net Profit Margin."""
@@ -55,11 +56,22 @@ def calculate_return_on_equity(net_profit: Optional[float], equity_capital: Opti
         return None
     return round(((net_profit or 0) / denominator) * 100, 2)
 
-def calculate_return_on_capital_employed(ebit: Optional[float], equity_capital: Optional[float], reserves: Optional[float], borrowings: Optional[float], is_financial_sector: bool = False, company_id: Optional[str] = None, year: Optional[float] = None) -> Tuple[Optional[float], bool]:
+def calculate_return_on_capital_employed(ebit: Optional[float], equity_capital: Optional[float], reserves: Optional[float], borrowings: Optional[float], is_financial_sector: bool = False, company_id: Optional[str] = None, year: Optional[float] = None, company_name: Optional[str] = None) -> Tuple[Optional[float], bool]:
     """Calculate Return on Capital Employed."""
     if is_financial_sector:
         if company_id and year:
-            edge_logger.info(f"Anomaly Category: ROCE_Financials | {company_id} ({year}) | Bank ROCE is not applicable. Skipped.")
+            log_entry = {
+                "company_id": company_id,
+                "company_name": company_name or "Unknown",
+                "year": year,
+                "metric": "ROCE",
+                "computed_value": None,
+                "source_value": None,
+                "difference": None,
+                "category": "FORMULA_DIFFERENCE",
+                "explanation": "Bank ROCE is not applicable. Skipped."
+            }
+            edge_logger.info(json.dumps(log_entry))
         return None, True
         
     denominator = (equity_capital or 0) + (reserves or 0) + (borrowings or 0)
@@ -83,10 +95,12 @@ def populate_profitability_ratios(db_path: str):
         p.company_id, p.year, p.sales, p.operating_profit, p.opm_percentage, 
         p.net_profit, p.profit_before_tax, p.interest,
         b.equity_capital, b.reserves, b.borrowings, b.total_assets,
-        s.broad_sector
+        s.broad_sector,
+        c.company_name, c.roce_percentage as source_roce, c.roe_percentage as source_roe
     FROM profitandloss p
     LEFT JOIN balancesheet b ON p.company_id = b.company_id AND p.year = b.year
     LEFT JOIN sectors s ON p.company_id = s.company_id
+    LEFT JOIN companies c ON p.company_id = c.id
     """
     
     df = pd.read_sql_query(query, conn)
@@ -106,10 +120,44 @@ def populate_profitability_ratios(db_path: str):
         is_financial = row['broad_sector'] == 'Financials'
         
         roce, sector_rel = calculate_return_on_capital_employed(
-            ebit, row['equity_capital'], row['reserves'], row['borrowings'], is_financial, row['company_id'], row['year']
+            ebit, row['equity_capital'], row['reserves'], row['borrowings'], is_financial, row['company_id'], row['year'], row['company_name']
         )
         
         roa = calculate_return_on_assets(row['net_profit'], row['total_assets'])
+        
+        # Validation for ROCE
+        if roce is not None and pd.notna(row['source_roce']):
+            diff = abs(roce - row['source_roce'])
+            if diff > 5:
+                log_entry = {
+                    "company_id": row['company_id'],
+                    "company_name": row['company_name'],
+                    "year": row['year'],
+                    "metric": "ROCE",
+                    "computed_value": roce,
+                    "source_value": float(row['source_roce']),
+                    "difference": round(diff, 2),
+                    "category": "VERSION_DIFFERENCE",
+                    "explanation": "Significant difference between computed ROCE and source value."
+                }
+                edge_logger.info(json.dumps(log_entry))
+                
+        # Validation for ROE
+        if roe is not None and pd.notna(row['source_roe']):
+            diff = abs(roe - row['source_roe'])
+            if diff > 5:
+                log_entry = {
+                    "company_id": row['company_id'],
+                    "company_name": row['company_name'],
+                    "year": row['year'],
+                    "metric": "ROE",
+                    "computed_value": roe,
+                    "source_value": float(row['source_roe']),
+                    "difference": round(diff, 2),
+                    "category": "VERSION_DIFFERENCE",
+                    "explanation": "Significant difference between computed ROE and source value."
+                }
+                edge_logger.info(json.dumps(log_entry))
         
         updates.append((
             npm, opm, roe, roce, roa, sector_rel,
