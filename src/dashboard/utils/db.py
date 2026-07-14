@@ -109,3 +109,11 @@ def get_screener_data(target_year=None):
     db_path = get_db_path()
     df = engine.fetch_data(str(db_path), target_year=latest_year)
     return engine.calculate_composite_quality_score(df).fillna(0)
+
+@st.cache_data(ttl=600)
+def get_documents():
+    db_path = get_db_path()
+    if not db_path.exists():
+        return pd.DataFrame()
+    with sqlite3.connect(db_path) as conn:
+        return pd.read_sql_query("SELECT * FROM documents", conn)
