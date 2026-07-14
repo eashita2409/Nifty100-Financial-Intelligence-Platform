@@ -63,9 +63,22 @@ def apply_preset(preset_name):
     actual_name = name_map.get(preset_name)
     if actual_name and actual_name in presets:
         preset_vals = presets[actual_name]
+        key_map = {
+            'roe_min': 'roe',
+            'roce_min': 'roce',
+            'debt_equity_max': 'de',
+            'fcf_min': 'fcf',
+            'revenue_cagr_5y_min': 'rev_cagr',
+            'pat_cagr_5y_min': 'pat_cagr',
+            'pe_max': 'pe',
+            'pb_max': 'pb',
+            'dividend_yield_min': 'div'
+        }
         for k, v in preset_vals.items():
             if k in new_params:
                 new_params[k] = v
+                if k in key_map:
+                    st.session_state[key_map[k]] = float(v)
                 
     st.session_state.screener_params = new_params
 

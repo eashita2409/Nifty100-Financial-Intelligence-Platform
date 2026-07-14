@@ -32,7 +32,8 @@ def get_ratios():
     if not db_path.exists():
         return pd.DataFrame()
     with sqlite3.connect(db_path) as conn:
-        return pd.read_sql_query("SELECT * FROM financial_ratios", conn)
+        df = pd.read_sql_query("SELECT * FROM financial_ratios", conn)
+        return df.dropna(subset=['year'])
 
 @st.cache_data(ttl=600)
 def get_pl():
@@ -40,7 +41,8 @@ def get_pl():
     if not db_path.exists():
         return pd.DataFrame()
     with sqlite3.connect(db_path) as conn:
-        return pd.read_sql_query("SELECT * FROM profitandloss", conn)
+        df = pd.read_sql_query("SELECT * FROM profitandloss", conn)
+        return df.dropna(subset=['year'])
 
 @st.cache_data(ttl=600)
 def get_bs():
@@ -48,7 +50,8 @@ def get_bs():
     if not db_path.exists():
         return pd.DataFrame()
     with sqlite3.connect(db_path) as conn:
-        return pd.read_sql_query("SELECT * FROM balancesheet", conn)
+        df = pd.read_sql_query("SELECT * FROM balancesheet", conn)
+        return df.dropna(subset=['year'])
 
 @st.cache_data(ttl=600)
 def get_cf():
@@ -98,9 +101,11 @@ def get_valuation():
 @st.cache_data(ttl=600)
 def get_screener_data(target_year=None):
     from src.screener.engine import ScreenerEngine
+    ratios = get_ratios()
+    if ratios.empty:
+        return pd.DataFrame()
+    latest_year = ratios['year'].max()
     engine = ScreenerEngine()
     db_path = get_db_path()
-    if not db_path.exists():
-        return pd.DataFrame()
-    df = engine.fetch_data(str(db_path), target_year)
-    return engine.calculate_composite_quality_score(df)
+    df = engine.fetch_data(str(db_path), target_year=latest_year)
+    return engine.calculate_composite_quality_score(df).fillna(0)
