@@ -25,8 +25,8 @@ class ScreenerEngine:
         self.config = data.get('screener', {})
         self.presets = data.get('presets', {})
 
-    def fetch_data(self, db_path: str) -> pd.DataFrame:
-        """Queries the SQLite database and builds the merged KPI dataframe for the latest year."""
+    def fetch_data(self, db_path: str, target_year: Optional[int] = None) -> pd.DataFrame:
+        """Queries the SQLite database and builds the merged KPI dataframe for the target year (or latest if None)."""
         path = Path(db_path)
         if not path.exists():
             raise FileNotFoundError(f"Database not found: {path}")
@@ -102,8 +102,11 @@ class ScreenerEngine:
             merged = merged.merge(mc, on=['company_id', 'year'], how='outer')
             merged = merged.merge(cashflow, on=['company_id', 'year'], how='outer')
             
-            # Get latest valid year per company
-            latest = merged.dropna(subset=['year']).sort_values('year').groupby('company_id').tail(1).copy()
+            # Filter by target_year or get latest valid year per company
+            if target_year is not None:
+                latest = merged[merged['year'] == target_year].copy()
+            else:
+                latest = merged.dropna(subset=['year']).sort_values('year').groupby('company_id').tail(1).copy()
             
             # Merge with metadata
             latest = latest.merge(companies, on='company_id', how='left')
