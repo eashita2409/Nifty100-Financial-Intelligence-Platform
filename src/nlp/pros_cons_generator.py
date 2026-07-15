@@ -263,9 +263,6 @@ def fetch_company_data(conn: sqlite3.Connection) -> pd.DataFrame:
 def generate_pros_cons(data_df: pd.DataFrame, confidence_threshold: float = 60.0) -> pd.DataFrame:
     """Apply all 12 PRO + 12 CON rules to every company row."""
     results = []
-    # Use > threshold (strictly), but add a tiny epsilon to handle float boundary issues
-    _min_conf = confidence_threshold + 0.01
-
     for _, row in data_df.iterrows():
         company_id = row["company_id"]
         row_dict = row.to_dict()
@@ -274,13 +271,14 @@ def generate_pros_cons(data_df: pd.DataFrame, confidence_threshold: float = 60.0
             try:
                 if rule["condition"](row_dict):
                     conf = rule["confidence"](row_dict)
-                    if conf >= _min_conf:
+                    rounded_conf = round(conf, 1)
+                    if rounded_conf > 60.0:
                         results.append({
                             "company_id": company_id,
                             "type": "PRO",
                             "rule_id": rule["rule_id"],
                             "text": rule["text"](row_dict),
-                            "confidence_pct": round(conf, 1),
+                            "confidence_pct": rounded_conf,
                         })
             except Exception:
                 pass
@@ -289,13 +287,14 @@ def generate_pros_cons(data_df: pd.DataFrame, confidence_threshold: float = 60.0
             try:
                 if rule["condition"](row_dict):
                     conf = rule["confidence"](row_dict)
-                    if conf >= _min_conf:
+                    rounded_conf = round(conf, 1)
+                    if rounded_conf > 60.0:
                         results.append({
                             "company_id": company_id,
                             "type": "CON",
                             "rule_id": rule["rule_id"],
                             "text": rule["text"](row_dict),
-                            "confidence_pct": round(conf, 1),
+                            "confidence_pct": rounded_conf,
                         })
             except Exception:
                 pass
