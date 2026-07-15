@@ -18,8 +18,12 @@ peers_df = get_peers()
 percentiles_df = get_peer_percentiles()
 companies_df = get_companies()
 
-if peers_df.empty or percentiles_df.empty:
-    st.warning("Peer comparison data is not available.")
+if peers_df.empty:
+    st.warning("Peer group data is not available. Please run the peer analysis pipeline first.")
+    st.stop()
+
+if percentiles_df.empty:
+    st.warning("Peer percentile data is not available. Please run the peer analysis pipeline first.")
     st.stop()
 
 # Get unique peer groups
@@ -32,7 +36,7 @@ else:
     # Filter companies in this group
     group_companies = peers_df[peers_df['peer_group_name'] == selected_group]
 
-    # Fetch latest percentiles (filter by latest year)
+    # Fetch latest percentiles
     latest_year = percentiles_df['year'].max()
     percentiles_latest = percentiles_df[percentiles_df['year'] == latest_year]
 
@@ -40,77 +44,110 @@ else:
     group_data = group_companies.merge(companies_df, left_on='company_id', right_on='id', how='inner')
     group_data = group_data.merge(percentiles_latest, on='company_id', how='left')
 
-    # The percentiles columns
-    radar_metrics = {
+    # Radar metrics available
+    ALL_RADAR_METRICS = {
         'roe_rank': 'ROE',
         'roce_rank': 'ROCE',
         'npm_rank': 'Net Profit Margin',
-        'debt_equity_rank': 'Debt to Equity',
+        'debt_equity_rank': 'Debt/Equity',
         'fcf_rank': 'Free Cash Flow',
         'revenue_cagr_rank': 'Rev CAGR (5Y)'
     }
 
-    st.markdown("### Radar Comparison (Percentiles)")
-    # Calculate peer average percentiles
-    peer_avg = group_data[list(radar_metrics.keys())].mean().to_dict()
+    # Only use columns that exist
+    radar_metrics = {k: v for k, v in ALL_RADAR_METRICS.items() if k in group_data.columns}
 
-    # Allow selecting a specific company to compare against average
-    company_options = group_data['company_name'].tolist()
-    selected_company_name = st.selectbox("Select Company to Compare", options=company_options)
-
-    if not selected_company_name:
-        st.info("Please select a company to compare.")
+    if not radar_metrics:
+        st.warning("No percentile rank columns found for this peer group.")
     else:
-        selected_company_data = group_data[group_data['company_name'] == selected_company_name].iloc[0]
+        st.markdown(f"### Peer Group: **{selected_group}** ({len(group_data)} companies)")
+        st.markdown("### Radar Comparison (Percentiles)")
 
-        fig = go.Figure()
-        # Add average trace
-        fig.add_trace(go.Scatterpolar(
-            r=[peer_avg[k] for k in radar_metrics.keys()] + [peer_avg[list(radar_metrics.keys())[0]]],
-            theta=list(radar_metrics.values()) + [list(radar_metrics.values())[0]],
-            fill='toself',
-            name='Peer Average',
-            line_color='gray'
-        ))
+        # Compute peer averages – fill NaN with 50 (median rank)
+        peer_avg = group_data[list(radar_metrics.keys())].fillna(50).mean().to_dict()
 
-        # Add selected company trace
-        fig.add_trace(go.Scatterpolar(
-            r=[selected_company_data[k] if pd.notna(selected_company_data[k]) else 0 for k in radar_metrics.keys()] + [selected_company_data[list(radar_metrics.keys())[0]] if pd.notna(selected_company_data[list(radar_metrics.keys())[0]]) else 0],
-            theta=list(radar_metrics.values()) + [list(radar_metrics.values())[0]],
-            fill='toself',
-            name=selected_company_name,
-            line_color='blue'
-        ))
+        # Allow selecting a specific company to compare against average
+        company_options = group_data['company_name'].tolist()
+        selected_company_name = st.selectbox("Select Company to Compare", options=company_options)
 
-        fig.update_layout(
-            polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
-            showlegend=True
-        )
+        if selected_company_name:
+            sel_row = group_data[group_data['company_name'] == selected_company_name]
+            if sel_row.empty:
+                st.warning("Company data not found in this peer group.")
+            else:
+                selected_company_data = sel_row.iloc[0]
+                keys = list(radar_metrics.keys())
+                labels = list(radar_metrics.values())
 
-        st.plotly_chart(fig, use_container_width=True)
+                fig = go.Figure()
+                # Peer Average trace
+                avg_r = [peer_avg[k] for k in keys] + [peer_avg[keys[0]]]
+                fig.add_trace(go.Scatterpolar(
+                    r=avg_r,
+                    theta=labels + [labels[0]],
+                    fill='toself',
+                    name='Peer Average',
+                    line_color='gray',
+                    opacity=0.6
+                ))
+
+                # Selected company trace
+                comp_r = [
+                    float(selected_company_data[k]) if pd.notna(selected_company_data.get(k)) else 50
+                    for k in keys
+                ] + [
+                    float(selected_company_data[keys[0]]) if pd.notna(selected_company_data.get(keys[0])) else 50
+                ]
+                fig.add_trace(go.Scatterpolar(
+                    r=comp_r,
+                    theta=labels + [labels[0]],
+                    fill='toself',
+                    name=selected_company_name,
+                    line_color='#1f77b4'
+                ))
+
+                fig.update_layout(
+                    polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
+                    showlegend=True,
+                    height=450
+                )
+                st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("---")
     st.markdown("### KPI Comparison Table")
 
-    # Get absolute data for KPI comparison table
     with st.spinner("Fetching absolute metrics..."):
-        df_raw = get_screener_data() # Gets latest year by default
-        
-    group_raw_data = group_data[['company_id', 'company_name', 'is_benchmark']].merge(df_raw, on='company_id', how='inner')
+        df_raw = get_screener_data()
 
-    if not group_raw_data.empty:
-        display_cols = ['company_name', 'is_benchmark', 'composite_quality_score', 'roe', 'roce', 'net_margin', 'debt_equity', 'revenue_cagr_5yr', 'pe']
-        
-        # Clean up dataframe for display
-        display_df = group_raw_data[[c for c in display_cols if c in group_raw_data.columns]].copy()
-        
-        # Streamlit dataframe styling for benchmark
-        def highlight_benchmark(row):
-            # We need to return an array of styles of the same length as the row
-            if row.get('is_benchmark', 0) == 1:
-                return ['background-color: rgba(255, 215, 0, 0.2)'] * len(row)
-            return [''] * len(row)
+    if not df_raw.empty:
+        # Merge raw KPIs for companies in this peer group
+        group_raw_data = group_data[['company_id', 'company_name', 'is_benchmark']].merge(
+            df_raw, on='company_id', how='inner'
+        )
 
-        st.dataframe(display_df.style.apply(highlight_benchmark, axis=1), use_container_width=True, hide_index=True)
+        if not group_raw_data.empty:
+            display_cols = [
+                'company_name', 'is_benchmark', 'composite_quality_score',
+                'roe', 'roce', 'net_margin', 'debt_equity', 'revenue_cagr_5yr', 'pe'
+            ]
+            display_df = group_raw_data[[c for c in display_cols if c in group_raw_data.columns]].copy()
+
+            # Round numeric columns
+            for col in display_df.select_dtypes(include='float').columns:
+                display_df[col] = display_df[col].round(2)
+
+            def highlight_benchmark(row):
+                is_bm = row.get('is_benchmark', 0)
+                if is_bm == 1:
+                    return ['background-color: rgba(255, 215, 0, 0.2)'] * len(row)
+                return [''] * len(row)
+
+            st.dataframe(
+                display_df.style.apply(highlight_benchmark, axis=1),
+                use_container_width=True,
+                hide_index=True
+            )
+        else:
+            st.info("Raw KPI data not available for this peer group.")
     else:
-        st.info("Raw KPI data not available for this peer group.")
+        st.info("Screener data not loaded.")
