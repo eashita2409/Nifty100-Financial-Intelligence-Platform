@@ -45,9 +45,10 @@ logger = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-DEFAULT_RAW_DIR = Path("data/raw")
-DEFAULT_PROCESSED_DIR = Path("data/processed")
-DEFAULT_AUDIT_PATH = Path("output/load_audit.csv")
+_ROOT = Path(__file__).resolve().parent.parent.parent
+DEFAULT_RAW_DIR = _ROOT / "data" / "raw"
+DEFAULT_PROCESSED_DIR = _ROOT / "data" / "processed"
+DEFAULT_AUDIT_PATH = _ROOT / "output" / "load_audit.csv"
 
 # Files whose first row is a Bluestock Fintech branding banner (not a header).
 # The real column headers live on row 1 (0-indexed) of these workbooks.

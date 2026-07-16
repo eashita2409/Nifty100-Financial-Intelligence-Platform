@@ -4,7 +4,8 @@ from typing import Optional
 from pathlib import Path
 import logging
 
-edge_log_path = Path("output/ratio_edge_cases.log")
+_ROOT = Path(__file__).resolve().parent.parent.parent
+edge_log_path = _ROOT / "output" / "ratio_edge_cases.log"
 edge_log_path.parent.mkdir(parents=True, exist_ok=True)
 edge_logger = logging.getLogger("LeverageEdgeCases")
 edge_logger.setLevel(logging.INFO)

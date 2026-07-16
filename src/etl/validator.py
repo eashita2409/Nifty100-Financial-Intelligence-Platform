@@ -53,8 +53,9 @@ logger = logging.getLogger(__name__)
 # Constants
 # ---------------------------------------------------------------------------
 
-PROCESSED_DIR = Path("data/processed")
-OUTPUT_DIR = Path("output")
+_ROOT = Path(__file__).resolve().parent.parent.parent
+PROCESSED_DIR = _ROOT / "data" / "processed"
+OUTPUT_DIR = _ROOT / "output"
 
 FAILURES_CSV = OUTPUT_DIR / "validation_failures.csv"
 SUMMARY_CSV = OUTPUT_DIR / "dq_summary.csv"

@@ -157,6 +157,7 @@ def calculate_peer_percentiles(db_path: str):
         conn.close()
 
 if __name__ == "__main__":
-    db_path = "data/db/nifty100.db"
+    from pathlib import Path
+    db_path = str(Path(__file__).resolve().parent.parent.parent / "data" / "db" / "nifty100.db")
     calculate_peer_percentiles(db_path)
     print("Peer percentiles calculation complete.")

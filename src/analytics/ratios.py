@@ -4,8 +4,8 @@ import pandas as pd
 from pathlib import Path
 from typing import Optional, Tuple
 
-# Setup logging for OPM cross-checks
-log_file_path = Path("output/opm_crosscheck.log")
+_ROOT = Path(__file__).resolve().parent.parent.parent
+log_file_path = _ROOT / "output" / "opm_crosscheck.log"
 log_file_path.parent.mkdir(parents=True, exist_ok=True)
 
 logger = logging.getLogger("ProfitabilityRatios")
@@ -21,7 +21,7 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
-edge_log_path = Path("output/ratio_edge_cases.log")
+edge_log_path = _ROOT / "output" / "ratio_edge_cases.log"
 edge_logger = logging.getLogger("RatioEdgeCases")
 edge_logger.setLevel(logging.INFO)
 if edge_logger.hasHandlers():

@@ -10,3 +10,7 @@ streamlit
 plotly
 pyyaml
 reportlab
+scikit-learn
+fastapi
+uvicorn
+pydantic
