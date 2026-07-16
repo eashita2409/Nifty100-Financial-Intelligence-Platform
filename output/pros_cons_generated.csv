@@ -1,0 +1,940 @@
+company_id,type,rule_id,text,confidence_pct
+ABB,PRO,PRO_01,Company has strong Return on Equity of 34.1% (≥15%).,88.7
+ABB,PRO,PRO_02,Company has strong Return on Capital Employed of 45.5% (≥15%).,100.0
+ABB,PRO,PRO_03,Company is almost debt free.,90.0
+ABB,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1095 Cr.,63.1
+ABB,PRO,PRO_06,Company has delivered strong profit growth of 21.7% CAGR over last 5 years.,79.5
+ABB,PRO,PRO_07,Company maintains a healthy net profit margin of 20.5%.,68.6
+ABB,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 73.0%.,100.0
+ABB,PRO,PRO_09,Company has strong interest coverage ratio of 135.8x.,100.0
+ABB,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.02.,79.2
+ABB,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.16x.,63.2
+ABB,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.91x.,72.3
+ABB,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ABB,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ADANIENSOL,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1095 Cr.,63.1
+ADANIENSOL,PRO,PRO_05,Company has delivered good revenue growth of 17.9% CAGR over last 5 years.,73.8
+ADANIENSOL,PRO,PRO_06,Company has delivered strong profit growth of 16.4% CAGR over last 5 years.,71.6
+ADANIENSOL,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.92x.,72.6
+ADANIENSOL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ADANIENSOL,CON,CON_01,Company has low Return on Equity of 5.7% (<10%).,68.6
+ADANIENSOL,CON,CON_02,Company has low Return on Capital Employed of 7.6% (<10%).,64.8
+ADANIENSOL,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+ADANIENSOL,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.24x.,63.0
+ADANIENSOL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ADANIENT,PRO,PRO_05,Company has delivered good revenue growth of 19.0% CAGR over last 5 years.,75.5
+ADANIENT,PRO,PRO_06,Company has delivered strong profit growth of 45.8% CAGR over last 5 years.,100.0
+ADANIENT,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ADANIENT,CON,CON_01,Company has low Return on Equity of 8.0% (<10%).,64.1
+ADANIENT,CON,CON_02,Company has low Return on Capital Employed of 7.8% (<10%).,64.5
+ADANIENT,CON,CON_04,Company has negative Free Cash Flow of ₹-8455 Cr.,68.5
+ADANIENT,CON,CON_07,Company operates on thin net profit margins of 3.5%.,68.2
+ADANIENT,CON,CON_12,Company's FCF Conversion of -2.54x suggests poor cash realisation from profits.,85.4
+ADANIENT,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ADANIGREEN,PRO,PRO_05,Company has delivered good revenue growth of 35.0% CAGR over last 5 years.,99.5
+ADANIGREEN,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ADANIGREEN,CON,CON_02,Company has low Return on Capital Employed of 8.6% (<10%).,62.9
+ADANIGREEN,CON,CON_03,Company carries high financial leverage with D/E of 6.38x.,81.9
+ADANIGREEN,CON,CON_04,Company has negative Free Cash Flow of ₹-13347 Cr.,73.3
+ADANIGREEN,CON,CON_08,"Company has a low interest coverage ratio of 1.3x, indicating potential debt service risk.",71.7
+ADANIGREEN,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+ADANIGREEN,CON,CON_10,Company has elevated debt-to-equity ratio of 6.38x.,81.9
+ADANIGREEN,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.09x.,70.5
+ADANIGREEN,CON,CON_12,Company's FCF Conversion of -10.59x suggests poor cash realisation from profits.,100.0
+ADANIGREEN,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ADANIPORTS,PRO,PRO_04,Company generates positive Free Cash Flow of ₹8250 Cr.,70.2
+ADANIPORTS,PRO,PRO_05,Company has delivered good revenue growth of 19.6% CAGR over last 5 years.,76.4
+ADANIPORTS,PRO,PRO_06,Company has delivered strong profit growth of 14.9% CAGR over last 5 years.,69.4
+ADANIPORTS,PRO,PRO_07,Company maintains a healthy net profit margin of 30.3%.,80.4
+ADANIPORTS,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.02x.,75.6
+ADANIPORTS,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ADANIPORTS,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.21x.,64.5
+ADANIPORTS,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ADANIPOWER,PRO,PRO_01,Company has strong Return on Equity of 37.2% (≥15%).,93.3
+ADANIPOWER,PRO,PRO_02,Company has strong Return on Capital Employed of 25.8% (≥15%).,76.2
+ADANIPOWER,PRO,PRO_04,Company generates positive Free Cash Flow of ₹17651 Cr.,79.7
+ADANIPOWER,PRO,PRO_05,Company has delivered good revenue growth of 16.1% CAGR over last 5 years.,71.1
+ADANIPOWER,PRO,PRO_07,Company maintains a healthy net profit margin of 41.4%.,93.6
+ADANIPOWER,PRO,PRO_09,Company has strong interest coverage ratio of 7.1x.,63.2
+ADANIPOWER,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.51x.,60.3
+ADANIPOWER,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ADANIPOWER,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+ADANIPOWER,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+AMBUJACEM,PRO,PRO_03,Company is almost debt free.,90.0
+AMBUJACEM,PRO,PRO_06,Company has delivered strong profit growth of 11.2% CAGR over last 5 years.,63.8
+AMBUJACEM,PRO,PRO_09,Company has strong interest coverage ratio of 22.4x.,86.1
+AMBUJACEM,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.02.,79.2
+AMBUJACEM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+AMBUJACEM,CON,CON_01,Company has low Return on Equity of 9.4% (<10%).,61.2
+AMBUJACEM,CON,CON_04,Company has negative Free Cash Flow of ₹-3295 Cr.,63.3
+AMBUJACEM,CON,CON_05,Company has weak revenue growth of 4.1% CAGR over last 5 years.,63.5
+AMBUJACEM,CON,CON_12,Company's FCF Conversion of -0.70x suggests poor cash realisation from profits.,67.0
+AMBUJACEM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+APOLLOHOSP,PRO,PRO_04,Company generates positive Free Cash Flow of ₹383 Cr.,62.4
+APOLLOHOSP,PRO,PRO_05,Company has delivered good revenue growth of 14.7% CAGR over last 5 years.,69.0
+APOLLOHOSP,PRO,PRO_06,Company has delivered strong profit growth of 36.1% CAGR over last 5 years.,100.0
+APOLLOHOSP,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 26.0%.,64.8
+APOLLOHOSP,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+APOLLOHOSP,CON,CON_07,Company operates on thin net profit margins of 4.9%.,62.4
+APOLLOHOSP,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ASIANPAINT,PRO,PRO_01,Company has strong Return on Equity of 30.8% (≥15%).,83.8
+ASIANPAINT,PRO,PRO_02,Company has strong Return on Capital Employed of 36.8% (≥15%).,92.7
+ASIANPAINT,PRO,PRO_04,Company generates positive Free Cash Flow of ₹3556 Cr.,65.6
+ASIANPAINT,PRO,PRO_05,Company has delivered good revenue growth of 13.0% CAGR over last 5 years.,66.5
+ASIANPAINT,PRO,PRO_06,Company has delivered strong profit growth of 20.3% CAGR over last 5 years.,77.4
+ASIANPAINT,PRO,PRO_07,Company maintains a healthy net profit margin of 15.7%.,62.8
+ASIANPAINT,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 58.0%.,90.4
+ASIANPAINT,PRO,PRO_09,Company has strong interest coverage ratio of 36.8x.,100.0
+ASIANPAINT,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.14.,74.4
+ASIANPAINT,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.20x.,64.0
+ASIANPAINT,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.64x.,64.2
+ASIANPAINT,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ASIANPAINT,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BAJAJ-AUTO,PRO,PRO_01,Company has strong Return on Equity of 24.9% (≥15%).,74.8
+BAJAJ-AUTO,PRO,PRO_02,Company has strong Return on Capital Employed of 27.9% (≥15%).,79.3
+BAJAJ-AUTO,PRO,PRO_04,Company generates positive Free Cash Flow of ₹6486 Cr.,68.5
+BAJAJ-AUTO,PRO,PRO_07,Company maintains a healthy net profit margin of 17.2%.,64.6
+BAJAJ-AUTO,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 29.0%.,67.2
+BAJAJ-AUTO,PRO,PRO_09,Company has strong interest coverage ratio of 168.3x.,100.0
+BAJAJ-AUTO,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.17.,73.2
+BAJAJ-AUTO,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.84x.,70.2
+BAJAJ-AUTO,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BAJAJ-AUTO,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+AXISBANK,PRO,PRO_01,Company has strong Return on Equity of 15.8% (≥15%).,61.2
+AXISBANK,PRO,PRO_05,Company has delivered good revenue growth of 14.7% CAGR over last 5 years.,69.1
+AXISBANK,PRO,PRO_06,Company has delivered strong profit growth of 39.7% CAGR over last 5 years.,100.0
+AXISBANK,PRO,PRO_07,Company maintains a healthy net profit margin of 22.7%.,71.3
+AXISBANK,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+AXISBANK,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+AXISBANK,CON,CON_04,Company has negative Free Cash Flow of ₹-14556 Cr.,74.6
+AXISBANK,CON,CON_10,Company has elevated debt-to-equity ratio of 8.25x.,91.2
+AXISBANK,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.07x.,71.5
+AXISBANK,CON,CON_12,Company's FCF Conversion of -0.59x suggests poor cash realisation from profits.,65.9
+AXISBANK,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BAJAJFINSV,PRO,PRO_01,Company has strong Return on Equity of 22.8% (≥15%).,71.7
+BAJAJFINSV,PRO,PRO_05,Company has delivered good revenue growth of 21.0% CAGR over last 5 years.,78.5
+BAJAJFINSV,PRO,PRO_06,Company has delivered strong profit growth of 23.8% CAGR over last 5 years.,82.6
+BAJAJFINSV,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BAJAJFINSV,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+BAJAJFINSV,CON,CON_04,Company has negative Free Cash Flow of ₹-79634 Cr.,90.0
+BAJAJFINSV,CON,CON_10,Company has elevated debt-to-equity ratio of 4.66x.,73.3
+BAJAJFINSV,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.18x.,66.0
+BAJAJFINSV,CON,CON_12,Company's FCF Conversion of -5.11x suggests poor cash realisation from profits.,100.0
+BAJAJFINSV,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BAJAJHLDNG,PRO,PRO_03,Company is almost debt free.,90.0
+BAJAJHLDNG,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1469 Cr.,63.5
+BAJAJHLDNG,PRO,PRO_05,Company has delivered good revenue growth of 31.6% CAGR over last 5 years.,94.4
+BAJAJHLDNG,PRO,PRO_06,Company has delivered strong profit growth of 19.3% CAGR over last 5 years.,76.0
+BAJAJHLDNG,PRO,PRO_07,Company maintains a healthy net profit margin of 432.7%.,100.0
+BAJAJHLDNG,PRO,PRO_09,Company has strong interest coverage ratio of 3747.5x.,100.0
+BAJAJHLDNG,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BAJAJHLDNG,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+BAJAJHLDNG,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.02x.,74.0
+BAJAJHLDNG,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BAJFINANCE,PRO,PRO_01,Company has strong Return on Equity of 16.6% (≥15%).,62.5
+BAJFINANCE,PRO,PRO_05,Company has delivered good revenue growth of 24.4% CAGR over last 5 years.,83.5
+BAJFINANCE,PRO,PRO_06,Company has delivered strong profit growth of 29.3% CAGR over last 5 years.,91.0
+BAJFINANCE,PRO,PRO_07,Company maintains a healthy net profit margin of 26.3%.,75.5
+BAJFINANCE,PRO,PRO_09,Company has strong interest coverage ratio of 3219.3x.,100.0
+BAJFINANCE,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BAJFINANCE,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+BAJFINANCE,CON,CON_04,Company has negative Free Cash Flow of ₹-79931 Cr.,90.0
+BAJFINANCE,CON,CON_10,Company has elevated debt-to-equity ratio of 3.74x.,68.7
+BAJFINANCE,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.13x.,68.5
+BAJFINANCE,CON,CON_12,Company's FCF Conversion of -5.53x suggests poor cash realisation from profits.,100.0
+BAJFINANCE,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BANKBARODA,PRO,PRO_01,Company has strong Return on Equity of 15.8% (≥15%).,61.1
+BANKBARODA,PRO,PRO_05,Company has delivered good revenue growth of 17.5% CAGR over last 5 years.,73.2
+BANKBARODA,PRO,PRO_06,Company has delivered strong profit growth of 74.5% CAGR over last 5 years.,100.0
+BANKBARODA,PRO,PRO_07,Company maintains a healthy net profit margin of 15.9%.,63.1
+BANKBARODA,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 21.0%.,60.8
+BANKBARODA,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BANKBARODA,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+BANKBARODA,CON,CON_04,Company has negative Free Cash Flow of ₹-7559 Cr.,67.6
+BANKBARODA,CON,CON_10,Company has elevated debt-to-equity ratio of 12.14x.,100.0
+BANKBARODA,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.07x.,71.5
+BANKBARODA,CON,CON_12,Company's FCF Conversion of -0.40x suggests poor cash realisation from profits.,64.0
+BANKBARODA,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BHARTIARTL,PRO,PRO_04,Company generates positive Free Cash Flow of ₹27809 Cr.,89.8
+BHARTIARTL,PRO,PRO_05,Company has delivered good revenue growth of 13.2% CAGR over last 5 years.,66.8
+BHARTIARTL,PRO,PRO_06,Company has delivered strong profit growth of 38.4% CAGR over last 5 years.,100.0
+BHARTIARTL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 62.0%.,93.6
+BHARTIARTL,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 3.25x.,100.0
+BHARTIARTL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BHARTIARTL,CON,CON_01,Company has low Return on Equity of 9.8% (<10%).,60.3
+BHARTIARTL,CON,CON_03,Company carries high financial leverage with D/E of 2.59x.,63.0
+BHARTIARTL,CON,CON_10,Company has elevated debt-to-equity ratio of 2.59x.,63.0
+BHARTIARTL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BEL,PRO,PRO_01,Company has strong Return on Equity of 4379.1% (≥15%).,100.0
+BEL,PRO,PRO_02,Company has strong Return on Capital Employed of 3123.1% (≥15%).,100.0
+BEL,PRO,PRO_05,Company has delivered good revenue growth of 10.8% CAGR over last 5 years.,63.1
+BEL,PRO,PRO_06,Company has delivered strong profit growth of 16.1% CAGR over last 5 years.,71.2
+BEL,PRO,PRO_07,Company maintains a healthy net profit margin of 19.7%.,67.6
+BEL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 40.0%.,76.0
+BEL,PRO,PRO_09,Company has strong interest coverage ratio of 439.8x.,100.0
+BEL,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 90.08x.,100.0
+BEL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BEL,CON,CON_04,Company has negative Free Cash Flow of ₹-1265 Cr.,61.3
+BEL,CON,CON_12,Company's FCF Conversion of -0.32x suggests poor cash realisation from profits.,63.2
+BEL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BHEL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 31.0%.,68.8
+BHEL,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.38.,64.8
+BHEL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BHEL,CON,CON_01,Company has low Return on Equity of 1.2% (<10%).,77.7
+BHEL,CON,CON_02,Company has low Return on Capital Employed of 3.2% (<10%).,73.6
+BHEL,CON,CON_04,Company has negative Free Cash Flow of ₹-2382 Cr.,62.4
+BHEL,CON,CON_06,Company's net profit has declined at -22.4% CAGR over last 5 years.,100.0
+BHEL,CON,CON_07,Company operates on thin net profit margins of 1.2%.,77.3
+BHEL,CON,CON_08,"Company has a low interest coverage ratio of 1.3x, indicating potential debt service risk.",72.1
+BHEL,CON,CON_12,Company's FCF Conversion of -17.89x suggests poor cash realisation from profits.,100.0
+BHEL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BOSCHLTD,PRO,PRO_01,Company has strong Return on Equity of 19.6% (≥15%).,66.8
+BOSCHLTD,PRO,PRO_02,Company has strong Return on Capital Employed of 25.3% (≥15%).,75.5
+BOSCHLTD,PRO,PRO_03,Company is almost debt free.,90.0
+BOSCHLTD,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1536 Cr.,63.5
+BOSCHLTD,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 44.0%.,79.2
+BOSCHLTD,PRO,PRO_09,Company has strong interest coverage ratio of 63.4x.,100.0
+BOSCHLTD,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BOSCHLTD,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BPCL,PRO,PRO_01,Company has strong Return on Equity of 34.8% (≥15%).,89.7
+BPCL,PRO,PRO_02,Company has strong Return on Capital Employed of 29.7% (≥15%).,82.0
+BPCL,PRO,PRO_04,Company generates positive Free Cash Flow of ₹25415 Cr.,87.4
+BPCL,PRO,PRO_06,Company has delivered strong profit growth of 25.8% CAGR over last 5 years.,85.7
+BPCL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 33.0%.,70.4
+BPCL,PRO,PRO_09,Company has strong interest coverage ratio of 9.7x.,67.1
+BPCL,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 2.12x.,82.4
+BPCL,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.95x.,73.5
+BPCL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BPCL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+BRITANNIA,PRO,PRO_01,Company has strong Return on Equity of 66.5% (≥15%).,100.0
+BRITANNIA,PRO,PRO_02,Company has strong Return on Capital Employed of 51.6% (≥15%).,100.0
+BRITANNIA,PRO,PRO_04,Company generates positive Free Cash Flow of ₹3050 Cr.,65.0
+BRITANNIA,PRO,PRO_06,Company has delivered strong profit growth of 13.1% CAGR over last 5 years.,66.6
+BRITANNIA,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 83.0%.,100.0
+BRITANNIA,PRO,PRO_09,Company has strong interest coverage ratio of 18.8x.,80.6
+BRITANNIA,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.77x.,75.4
+BRITANNIA,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.98x.,74.4
+BRITANNIA,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+BRITANNIA,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+CANBK,PRO,PRO_01,Company has strong Return on Equity of 16.7% (≥15%).,62.6
+CANBK,PRO,PRO_04,Company generates positive Free Cash Flow of ₹13296 Cr.,75.3
+CANBK,PRO,PRO_05,Company has delivered good revenue growth of 18.2% CAGR over last 5 years.,74.3
+CANBK,PRO,PRO_06,Company has delivered strong profit growth of 85.8% CAGR over last 5 years.,100.0
+CANBK,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.86x.,70.8
+CANBK,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+CANBK,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+CANBK,CON,CON_10,Company has elevated debt-to-equity ratio of 14.87x.,100.0
+CANBK,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.07x.,71.5
+CANBK,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+CHOLAFIN,PRO,PRO_01,Company has strong Return on Equity of 16.0% (≥15%).,61.5
+CHOLAFIN,PRO,PRO_05,Company has delivered good revenue growth of 21.9% CAGR over last 5 years.,79.9
+CHOLAFIN,PRO,PRO_06,Company has delivered strong profit growth of 23.4% CAGR over last 5 years.,82.0
+CHOLAFIN,PRO,PRO_07,Company maintains a healthy net profit margin of 17.9%.,65.4
+CHOLAFIN,PRO,PRO_09,Company has strong interest coverage ratio of 19.1x.,81.1
+CHOLAFIN,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+CHOLAFIN,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+CHOLAFIN,CON,CON_04,Company has negative Free Cash Flow of ₹-38538 Cr.,90.0
+CHOLAFIN,CON,CON_10,Company has elevated debt-to-equity ratio of 7.38x.,86.9
+CHOLAFIN,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.11x.,69.5
+CHOLAFIN,CON,CON_12,Company's FCF Conversion of -11.27x suggests poor cash realisation from profits.,100.0
+CHOLAFIN,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+CIPLA,PRO,PRO_02,Company has strong Return on Capital Employed of 21.7% (≥15%).,70.0
+CIPLA,PRO,PRO_03,Company is almost debt free.,90.0
+CIPLA,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1152 Cr.,63.2
+CIPLA,PRO,PRO_06,Company has delivered strong profit growth of 22.7% CAGR over last 5 years.,81.1
+CIPLA,PRO,PRO_07,Company maintains a healthy net profit margin of 16.1%.,63.3
+CIPLA,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 25.0%.,64.0
+CIPLA,PRO,PRO_09,Company has strong interest coverage ratio of 11.3x.,69.5
+CIPLA,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.02.,79.2
+CIPLA,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+CIPLA,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+COALINDIA,PRO,PRO_01,Company has strong Return on Equity of 38.9% (≥15%).,95.8
+COALINDIA,PRO,PRO_02,Company has strong Return on Capital Employed of 55.0% (≥15%).,100.0
+COALINDIA,PRO,PRO_03,Company is almost debt free.,90.0
+COALINDIA,PRO,PRO_04,Company generates positive Free Cash Flow of ₹13617 Cr.,75.6
+COALINDIA,PRO,PRO_06,Company has delivered strong profit growth of 16.4% CAGR over last 5 years.,71.6
+COALINDIA,PRO,PRO_07,Company maintains a healthy net profit margin of 26.3%.,75.5
+COALINDIA,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 42.0%.,77.6
+COALINDIA,PRO,PRO_09,Company has strong interest coverage ratio of 6.8x.,62.7
+COALINDIA,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.08.,76.8
+COALINDIA,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+COALINDIA,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+DABUR,PRO,PRO_01,Company has strong Return on Equity of 17.5% (≥15%).,63.7
+DABUR,PRO,PRO_02,Company has strong Return on Capital Employed of 20.5% (≥15%).,68.2
+DABUR,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1042 Cr.,63.0
+DABUR,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 53.0%.,86.4
+DABUR,PRO,PRO_09,Company has strong interest coverage ratio of 20.0x.,82.5
+DABUR,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.17.,73.2
+DABUR,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.58x.,62.4
+DABUR,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+DABUR,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+DIVISLAB,PRO,PRO_02,Company has strong Return on Capital Employed of 15.8% (≥15%).,61.2
+DIVISLAB,PRO,PRO_03,Company is almost debt free.,90.0
+DIVISLAB,PRO,PRO_04,Company generates positive Free Cash Flow of ₹992 Cr.,63.0
+DIVISLAB,PRO,PRO_07,Company maintains a healthy net profit margin of 20.4%.,68.5
+DIVISLAB,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 50.0%.,84.0
+DIVISLAB,PRO,PRO_09,Company has strong interest coverage ratio of 541.8x.,100.0
+DIVISLAB,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.62x.,63.6
+DIVISLAB,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+DIVISLAB,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+DLF,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1010 Cr.,63.0
+DLF,PRO,PRO_06,Company has delivered strong profit growth of 15.7% CAGR over last 5 years.,70.5
+DLF,PRO,PRO_07,Company maintains a healthy net profit margin of 42.4%.,94.9
+DLF,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 45.0%.,80.0
+DLF,PRO,PRO_09,Company has strong interest coverage ratio of 7.0x.,63.1
+DLF,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.11.,75.6
+DLF,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+DLF,CON,CON_01,Company has low Return on Equity of 6.8% (<10%).,66.5
+DLF,CON,CON_02,Company has low Return on Capital Employed of 5.6% (<10%).,68.7
+DLF,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.10x.,70.0
+DLF,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+DMART,PRO,PRO_02,Company has strong Return on Capital Employed of 16.9% (≥15%).,62.8
+DMART,PRO,PRO_03,Company is almost debt free.,90.0
+DMART,PRO,PRO_04,Company generates positive Free Cash Flow of ₹278 Cr.,62.3
+DMART,PRO,PRO_05,Company has delivered good revenue growth of 20.5% CAGR over last 5 years.,77.7
+DMART,PRO,PRO_06,Company has delivered strong profit growth of 23.0% CAGR over last 5 years.,81.5
+DMART,PRO,PRO_09,Company has strong interest coverage ratio of 60.7x.,100.0
+DMART,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.04.,78.4
+DMART,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 2.20x.,84.0
+DMART,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+DMART,CON,CON_07,Company operates on thin net profit margins of 5.0%.,62.0
+DMART,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+DMART,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+DRREDDY,PRO,PRO_01,Company has strong Return on Equity of 18.1% (≥15%).,64.7
+DRREDDY,PRO,PRO_02,Company has strong Return on Capital Employed of 20.7% (≥15%).,68.6
+DRREDDY,PRO,PRO_04,Company generates positive Free Cash Flow of ₹509 Cr.,62.5
+DRREDDY,PRO,PRO_05,Company has delivered good revenue growth of 12.6% CAGR over last 5 years.,66.0
+DRREDDY,PRO,PRO_06,Company has delivered strong profit growth of 23.4% CAGR over last 5 years.,82.1
+DRREDDY,PRO,PRO_07,Company maintains a healthy net profit margin of 19.9%.,67.9
+DRREDDY,PRO,PRO_09,Company has strong interest coverage ratio of 43.1x.,100.0
+DRREDDY,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.16.,73.6
+DRREDDY,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+DRREDDY,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+EICHERMOT,PRO,PRO_01,Company has strong Return on Equity of 21.1% (≥15%).,69.1
+EICHERMOT,PRO,PRO_02,Company has strong Return on Capital Employed of 27.1% (≥15%).,78.2
+EICHERMOT,PRO,PRO_03,Company is almost debt free.,90.0
+EICHERMOT,PRO,PRO_04,Company generates positive Free Cash Flow of ₹890 Cr.,62.9
+EICHERMOT,PRO,PRO_05,Company has delivered good revenue growth of 11.0% CAGR over last 5 years.,63.6
+EICHERMOT,PRO,PRO_06,Company has delivered strong profit growth of 12.7% CAGR over last 5 years.,66.0
+EICHERMOT,PRO,PRO_07,Company maintains a healthy net profit margin of 24.2%.,73.0
+EICHERMOT,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 35.0%.,72.0
+EICHERMOT,PRO,PRO_09,Company has strong interest coverage ratio of 103.0x.,100.0
+EICHERMOT,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.02.,79.2
+EICHERMOT,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+EICHERMOT,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+GAIL,PRO,PRO_04,Company generates positive Free Cash Flow of ₹4360 Cr.,66.4
+GAIL,PRO,PRO_05,Company has delivered good revenue growth of 11.8% CAGR over last 5 years.,64.7
+GAIL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 37.0%.,73.6
+GAIL,PRO,PRO_09,Company has strong interest coverage ratio of 18.5x.,80.3
+GAIL,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.23.,70.8
+GAIL,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.03x.,60.6
+GAIL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+GAIL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+GODREJCP,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.31.,67.6
+GODREJCP,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 2.43x.,100.0
+GODREJCP,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+GODREJCP,CON,CON_01,Company has low Return on Equity of -4.6% (<10%).,89.2
+GODREJCP,CON,CON_02,Company has low Return on Capital Employed of 3.2% (<10%).,73.6
+GODREJCP,CON,CON_04,Company has negative Free Cash Flow of ₹-1365 Cr.,61.4
+GODREJCP,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+GODREJCP,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+GRASIM,PRO,PRO_05,Company has delivered good revenue growth of 11.2% CAGR over last 5 years.,63.7
+GRASIM,PRO,PRO_06,Company has delivered strong profit growth of 29.3% CAGR over last 5 years.,91.0
+GRASIM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+GRASIM,CON,CON_02,Company has low Return on Capital Employed of 9.2% (<10%).,61.7
+GRASIM,CON,CON_04,Company has negative Free Cash Flow of ₹-33833 Cr.,90.0
+GRASIM,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.29x.,60.5
+GRASIM,CON,CON_12,Company's FCF Conversion of -3.41x suggests poor cash realisation from profits.,94.1
+GRASIM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HAL,PRO,PRO_01,Company has strong Return on Equity of 3669.1% (≥15%).,100.0
+HAL,PRO,PRO_02,Company has strong Return on Capital Employed of 3094.3% (≥15%).,100.0
+HAL,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1814 Cr.,63.8
+HAL,PRO,PRO_06,Company has delivered strong profit growth of 26.5% CAGR over last 5 years.,86.7
+HAL,PRO,PRO_07,Company maintains a healthy net profit margin of 25.0%.,74.0
+HAL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 31.0%.,68.8
+HAL,PRO,PRO_09,Company has strong interest coverage ratio of 238.2x.,100.0
+HAL,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 63.83x.,100.0
+HAL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HAL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HAVELLS,PRO,PRO_01,Company has strong Return on Equity of 16.3% (≥15%).,62.0
+HAVELLS,PRO,PRO_02,Company has strong Return on Capital Employed of 22.0% (≥15%).,70.6
+HAVELLS,PRO,PRO_03,Company is almost debt free.,90.0
+HAVELLS,PRO,PRO_04,Company generates positive Free Cash Flow of ₹335 Cr.,62.3
+HAVELLS,PRO,PRO_05,Company has delivered good revenue growth of 13.0% CAGR over last 5 years.,66.6
+HAVELLS,PRO,PRO_06,Company has delivered strong profit growth of 10.0% CAGR over last 5 years.,62.0
+HAVELLS,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 44.0%.,79.2
+HAVELLS,PRO,PRO_09,Company has strong interest coverage ratio of 21.3x.,84.5
+HAVELLS,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.04.,78.4
+HAVELLS,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.45x.,69.0
+HAVELLS,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HAVELLS,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HCLTECH,PRO,PRO_01,Company has strong Return on Equity of 22.8% (≥15%).,71.7
+HCLTECH,PRO,PRO_02,Company has strong Return on Capital Employed of 28.8% (≥15%).,80.7
+HCLTECH,PRO,PRO_03,Company is almost debt free.,90.0
+HCLTECH,PRO,PRO_04,Company generates positive Free Cash Flow of ₹15840 Cr.,77.8
+HCLTECH,PRO,PRO_05,Company has delivered good revenue growth of 12.7% CAGR over last 5 years.,66.1
+HCLTECH,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 90.0%.,100.0
+HCLTECH,PRO,PRO_09,Company has strong interest coverage ratio of 38.9x.,100.0
+HCLTECH,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.08.,76.8
+HCLTECH,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.10x.,62.0
+HCLTECH,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.01x.,75.3
+HCLTECH,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HCLTECH,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HDFCBANK,PRO,PRO_04,Company generates positive Free Cash Flow of ₹35669 Cr.,92.0
+HDFCBANK,PRO,PRO_05,Company has delivered good revenue growth of 21.9% CAGR over last 5 years.,79.9
+HDFCBANK,PRO,PRO_06,Company has delivered strong profit growth of 23.9% CAGR over last 5 years.,82.8
+HDFCBANK,PRO,PRO_07,Company maintains a healthy net profit margin of 23.1%.,71.7
+HDFCBANK,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 23.0%.,62.4
+HDFCBANK,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HDFCBANK,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+HDFCBANK,CON,CON_10,Company has elevated debt-to-equity ratio of 6.81x.,84.0
+HDFCBANK,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.07x.,71.5
+HDFCBANK,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HDFCLIFE,PRO,PRO_03,Company is almost debt free.,90.0
+HDFCLIFE,PRO,PRO_05,Company has delivered good revenue growth of 21.2% CAGR over last 5 years.,78.8
+HDFCLIFE,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 27.0%.,65.6
+HDFCLIFE,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.06.,77.6
+HDFCLIFE,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HDFCLIFE,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+HDFCLIFE,CON,CON_04,Company has negative Free Cash Flow of ₹-2893 Cr.,62.9
+HDFCLIFE,CON,CON_07,Company operates on thin net profit margins of 1.6%.,75.8
+HDFCLIFE,CON,CON_12,Company's FCF Conversion of -1.84x suggests poor cash realisation from profits.,78.4
+HDFCLIFE,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HEROMOTOCO,PRO,PRO_01,Company has strong Return on Equity of 19.7% (≥15%).,67.0
+HEROMOTOCO,PRO,PRO_02,Company has strong Return on Capital Employed of 29.5% (≥15%).,81.7
+HEROMOTOCO,PRO,PRO_03,Company is almost debt free.,90.0
+HEROMOTOCO,PRO,PRO_04,Company generates positive Free Cash Flow of ₹3095 Cr.,65.1
+HEROMOTOCO,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 75.0%.,100.0
+HEROMOTOCO,PRO,PRO_09,Company has strong interest coverage ratio of 8.4x.,65.1
+HEROMOTOCO,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.03.,78.8
+HEROMOTOCO,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.29x.,65.8
+HEROMOTOCO,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.83x.,69.9
+HEROMOTOCO,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HEROMOTOCO,CON,CON_05,Company has weak revenue growth of 2.1% CAGR over last 5 years.,71.4
+HEROMOTOCO,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HINDALCO,PRO,PRO_04,Company generates positive Free Cash Flow of ₹9789 Cr.,71.8
+HINDALCO,PRO,PRO_05,Company has delivered good revenue growth of 10.6% CAGR over last 5 years.,62.9
+HINDALCO,PRO,PRO_06,Company has delivered strong profit growth of 13.1% CAGR over last 5 years.,66.6
+HINDALCO,PRO,PRO_09,Company has strong interest coverage ratio of 10.2x.,67.8
+HINDALCO,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.96x.,73.8
+HINDALCO,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HINDALCO,CON,CON_01,Company has low Return on Equity of 8.8% (<10%).,62.4
+HINDALCO,CON,CON_02,Company has low Return on Capital Employed of 8.8% (<10%).,62.4
+HINDALCO,CON,CON_07,Company operates on thin net profit margins of 4.7%.,63.2
+HINDALCO,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+HINDUNILVR,PRO,PRO_01,Company has strong Return on Equity of 20.2% (≥15%).,67.9
+HINDUNILVR,PRO,PRO_02,Company has strong Return on Capital Employed of 28.1% (≥15%).,79.7
+HINDUNILVR,PRO,PRO_03,Company is almost debt free.,90.0
+HINDUNILVR,PRO,PRO_04,Company generates positive Free Cash Flow of ₹10145 Cr.,72.1
+HINDUNILVR,PRO,PRO_06,Company has delivered strong profit growth of 11.2% CAGR over last 5 years.,63.7
+HINDUNILVR,PRO,PRO_07,Company maintains a healthy net profit margin of 16.6%.,63.9
+HINDUNILVR,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 96.0%.,100.0
+HINDUNILVR,PRO,PRO_09,Company has strong interest coverage ratio of 18.1x.,79.6
+HINDUNILVR,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.03.,78.8
+HINDUNILVR,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.99x.,74.7
+HINDUNILVR,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+HINDUNILVR,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ICICIBANK,PRO,PRO_01,Company has strong Return on Equity of 18.0% (≥15%).,64.5
+ICICIBANK,PRO,PRO_04,Company generates positive Free Cash Flow of ₹12547 Cr.,74.5
+ICICIBANK,PRO,PRO_05,Company has delivered good revenue growth of 17.2% CAGR over last 5 years.,72.9
+ICICIBANK,PRO,PRO_06,Company has delivered strong profit growth of 52.0% CAGR over last 5 years.,100.0
+ICICIBANK,PRO,PRO_07,Company maintains a healthy net profit margin of 28.9%.,78.7
+ICICIBANK,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ICICIBANK,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+ICICIBANK,CON,CON_10,Company has elevated debt-to-equity ratio of 6.45x.,82.2
+ICICIBANK,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.07x.,71.5
+ICICIBANK,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ICICIGI,PRO,PRO_03,Company is almost debt free.,90.0
+ICICIGI,PRO,PRO_04,Company generates positive Free Cash Flow of ₹486 Cr.,62.5
+ICICIGI,PRO,PRO_05,Company has delivered good revenue growth of 12.9% CAGR over last 5 years.,66.4
+ICICIGI,PRO,PRO_06,Company has delivered strong profit growth of 12.8% CAGR over last 5 years.,66.3
+ICICIGI,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 28.0%.,66.4
+ICICIGI,PRO,PRO_09,Company has strong interest coverage ratio of 23.8x.,88.2
+ICICIGI,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ICICIGI,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+ICICIGI,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ICICIPRULI,PRO,PRO_03,Company is almost debt free.,90.0
+ICICIPRULI,PRO,PRO_04,Company generates positive Free Cash Flow of ₹105 Cr.,62.1
+ICICIPRULI,PRO,PRO_05,Company has delivered good revenue growth of 16.9% CAGR over last 5 years.,72.3
+ICICIPRULI,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ICICIPRULI,CON,CON_01,Company has low Return on Equity of 7.3% (<10%).,65.3
+ICICIPRULI,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+ICICIPRULI,CON,CON_06,Company's net profit has declined at -5.7% CAGR over last 5 years.,71.3
+ICICIPRULI,CON,CON_07,Company operates on thin net profit margins of 0.9%.,78.2
+ICICIPRULI,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.28x.,61.0
+ICICIPRULI,CON,CON_12,Company's FCF Conversion of -17.31x suggests poor cash realisation from profits.,100.0
+ICICIPRULI,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+INDUSINDBK,PRO,PRO_05,Company has delivered good revenue growth of 15.5% CAGR over last 5 years.,70.2
+INDUSINDBK,PRO,PRO_06,Company has delivered strong profit growth of 22.1% CAGR over last 5 years.,80.1
+INDUSINDBK,PRO,PRO_07,Company maintains a healthy net profit margin of 19.6%.,67.5
+INDUSINDBK,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+INDUSINDBK,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+INDUSINDBK,CON,CON_04,Company has negative Free Cash Flow of ₹-17468 Cr.,77.5
+INDUSINDBK,CON,CON_10,Company has elevated debt-to-equity ratio of 6.89x.,84.5
+INDUSINDBK,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.09x.,70.5
+INDUSINDBK,CON,CON_12,Company's FCF Conversion of -1.95x suggests poor cash realisation from profits.,79.5
+INDUSINDBK,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+INFY,PRO,PRO_01,Company has strong Return on Equity of 29.0% (≥15%).,81.0
+INFY,PRO,PRO_02,Company has strong Return on Capital Employed of 36.7% (≥15%).,92.6
+INFY,PRO,PRO_04,Company generates positive Free Cash Flow of ₹20117 Cr.,82.1
+INFY,PRO,PRO_05,Company has delivered good revenue growth of 13.2% CAGR over last 5 years.,66.8
+INFY,PRO,PRO_06,Company has delivered strong profit growth of 11.2% CAGR over last 5 years.,63.9
+INFY,PRO,PRO_07,Company maintains a healthy net profit margin of 17.1%.,64.5
+INFY,PRO,PRO_09,Company has strong interest coverage ratio of 77.6x.,100.0
+INFY,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.10.,76.0
+INFY,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.08x.,61.6
+INFY,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.77x.,68.1
+INFY,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+INFY,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+INFY,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+IOC,PRO,PRO_01,Company has strong Return on Equity of 23.8% (≥15%).,73.2
+IOC,PRO,PRO_02,Company has strong Return on Capital Employed of 18.9% (≥15%).,65.8
+IOC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹39635 Cr.,92.0
+IOC,PRO,PRO_06,Company has delivered strong profit growth of 20.1% CAGR over last 5 years.,77.2
+IOC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 40.0%.,76.0
+IOC,PRO,PRO_09,Company has strong interest coverage ratio of 8.3x.,64.9
+IOC,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.52x.,70.4
+IOC,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.92x.,72.6
+IOC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+IOC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+IRCTC,PRO,PRO_01,Company has strong Return on Equity of 31.5% (≥15%).,84.8
+IRCTC,PRO,PRO_02,Company has strong Return on Capital Employed of 42.5% (≥15%).,100.0
+IRCTC,PRO,PRO_03,Company is almost debt free.,90.0
+IRCTC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹667 Cr.,62.7
+IRCTC,PRO,PRO_05,Company has delivered good revenue growth of 18.0% CAGR over last 5 years.,73.9
+IRCTC,PRO,PRO_06,Company has delivered strong profit growth of 29.2% CAGR over last 5 years.,90.8
+IRCTC,PRO,PRO_07,Company maintains a healthy net profit margin of 26.0%.,75.2
+IRCTC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 47.0%.,81.6
+IRCTC,PRO,PRO_09,Company has strong interest coverage ratio of 79.7x.,100.0
+IRCTC,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.01.,79.6
+IRCTC,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.60x.,63.0
+IRCTC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+IRCTC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+IRFC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹7906 Cr.,69.9
+IRFC,PRO,PRO_05,Company has delivered good revenue growth of 19.1% CAGR over last 5 years.,75.6
+IRFC,PRO,PRO_06,Company has delivered strong profit growth of 23.2% CAGR over last 5 years.,81.9
+IRFC,PRO,PRO_07,Company maintains a healthy net profit margin of 24.1%.,72.9
+IRFC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 31.0%.,68.8
+IRFC,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.23x.,81.9
+IRFC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+IRFC,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+IRFC,CON,CON_10,Company has elevated debt-to-equity ratio of 7.83x.,89.2
+IRFC,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.05x.,72.5
+IRFC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ITC,PRO,PRO_01,Company has strong Return on Equity of 27.6% (≥15%).,78.9
+ITC,PRO,PRO_02,Company has strong Return on Capital Employed of 36.0% (≥15%).,91.5
+ITC,PRO,PRO_03,Company is almost debt free.,90.0
+ITC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹18742 Cr.,80.7
+ITC,PRO,PRO_06,Company has delivered strong profit growth of 10.1% CAGR over last 5 years.,62.1
+ITC,PRO,PRO_07,Company maintains a healthy net profit margin of 29.3%.,79.1
+ITC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 84.0%.,100.0
+ITC,PRO,PRO_09,Company has strong interest coverage ratio of 340.2x.,100.0
+ITC,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.75x.,67.5
+ITC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ITC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+JINDALSTEL,PRO,PRO_09,Company has strong interest coverage ratio of 5.8x.,61.2
+JINDALSTEL,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.36.,65.6
+JINDALSTEL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+JINDALSTEL,CON,CON_04,Company has negative Free Cash Flow of ₹-2336 Cr.,62.3
+JINDALSTEL,CON,CON_05,Company has weak revenue growth of 1.4% CAGR over last 5 years.,74.4
+JINDALSTEL,CON,CON_12,Company's FCF Conversion of -0.39x suggests poor cash realisation from profits.,63.9
+JINDALSTEL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+JIOFIN,PRO,PRO_03,Company is almost debt free.,90.0
+JIOFIN,PRO,PRO_04,Company generates positive Free Cash Flow of ₹763 Cr.,62.8
+JIOFIN,PRO,PRO_07,Company maintains a healthy net profit margin of 86.5%.,100.0
+JIOFIN,PRO,PRO_09,Company has strong interest coverage ratio of 196.6x.,100.0
+JIOFIN,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+JIOFIN,CON,CON_01,Company has low Return on Equity of 1.2% (<10%).,77.7
+JIOFIN,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+JIOFIN,CON,CON_05,Company has weak revenue growth of 0.0% CAGR over last 5 years.,80.0
+JIOFIN,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+JIOFIN,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.01x.,74.5
+JIOFIN,CON,CON_12,Company's FCF Conversion of -1.32x suggests poor cash realisation from profits.,73.2
+JIOFIN,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+JSWENERGY,PRO,PRO_06,Company has delivered strong profit growth of 20.3% CAGR over last 5 years.,77.5
+JSWENERGY,PRO,PRO_07,Company maintains a healthy net profit margin of 15.0%.,62.0
+JSWENERGY,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+JSWENERGY,CON,CON_01,Company has low Return on Equity of 6.2% (<10%).,67.7
+JSWENERGY,CON,CON_02,Company has low Return on Capital Employed of 7.2% (<10%).,65.7
+JSWENERGY,CON,CON_04,Company has negative Free Cash Flow of ₹-1963 Cr.,62.0
+JSWENERGY,CON,CON_05,Company has weak revenue growth of 4.7% CAGR over last 5 years.,61.3
+JSWENERGY,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.18x.,66.0
+JSWENERGY,CON,CON_12,Company's FCF Conversion of -1.14x suggests poor cash realisation from profits.,71.4
+JSWENERGY,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+JSWSTEEL,PRO,PRO_05,Company has delivered good revenue growth of 15.6% CAGR over last 5 years.,70.4
+JSWSTEEL,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 25.0%.,64.0
+JSWSTEEL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+JSWSTEEL,CON,CON_04,Company has negative Free Cash Flow of ₹-2389 Cr.,62.4
+JSWSTEEL,CON,CON_12,Company's FCF Conversion of -0.27x suggests poor cash realisation from profits.,62.7
+JSWSTEEL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+KOTAKBANK,PRO,PRO_04,Company generates positive Free Cash Flow of ₹6766 Cr.,68.8
+KOTAKBANK,PRO,PRO_05,Company has delivered good revenue growth of 13.5% CAGR over last 5 years.,67.3
+KOTAKBANK,PRO,PRO_06,Company has delivered strong profit growth of 20.4% CAGR over last 5 years.,77.6
+KOTAKBANK,PRO,PRO_07,Company maintains a healthy net profit margin of 32.4%.,82.9
+KOTAKBANK,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+KOTAKBANK,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+KOTAKBANK,CON,CON_10,Company has elevated debt-to-equity ratio of 4.00x.,70.0
+KOTAKBANK,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.07x.,71.5
+KOTAKBANK,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+LICI,PRO,PRO_01,Company has strong Return on Equity of 41.9% (≥15%).,100.0
+LICI,PRO,PRO_03,Company is almost debt free.,90.0
+LICI,PRO,PRO_04,Company generates positive Free Cash Flow of ₹853 Cr.,62.9
+LICI,PRO,PRO_06,Company has delivered strong profit growth of 73.2% CAGR over last 5 years.,100.0
+LICI,PRO,PRO_09,Company has strong interest coverage ratio of 368.3x.,100.0
+LICI,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+LICI,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+LICI,CON,CON_07,Company operates on thin net profit margins of 4.8%.,62.6
+LICI,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.15x.,67.5
+LICI,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+LODHA,PRO,PRO_07,Company maintains a healthy net profit margin of 15.1%.,62.1
+LODHA,PRO,PRO_09,Company has strong interest coverage ratio of 5.2x.,60.3
+LODHA,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.44.,62.4
+LODHA,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+LODHA,CON,CON_01,Company has low Return on Equity of 8.6% (<10%).,62.9
+LODHA,CON,CON_02,Company has low Return on Capital Employed of 9.6% (<10%).,60.8
+LODHA,CON,CON_04,Company has negative Free Cash Flow of ₹-435 Cr.,60.4
+LODHA,CON,CON_06,Company's net profit has declined at -1.1% CAGR over last 5 years.,62.2
+LODHA,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+LODHA,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.22x.,64.0
+LODHA,CON,CON_12,Company's FCF Conversion of -0.28x suggests poor cash realisation from profits.,62.8
+LODHA,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+LT,PRO,PRO_01,Company has strong Return on Equity of 73.8% (≥15%).,100.0
+LT,PRO,PRO_02,Company has strong Return on Capital Employed of 128.3% (≥15%).,100.0
+LT,PRO,PRO_04,Company generates positive Free Cash Flow of ₹20445 Cr.,82.4
+LT,PRO,PRO_05,Company has delivered good revenue growth of 10.3% CAGR over last 5 years.,62.5
+LT,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 36.0%.,72.8
+LT,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.11.,75.6
+LT,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 7.69x.,100.0
+LT,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.03x.,75.9
+LT,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+LT,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+LTIM,PRO,PRO_01,Company has strong Return on Equity of 21.8% (≥15%).,70.1
+LTIM,PRO,PRO_02,Company has strong Return on Capital Employed of 26.8% (≥15%).,77.7
+LTIM,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1752 Cr.,63.8
+LTIM,PRO,PRO_05,Company has delivered good revenue growth of 30.3% CAGR over last 5 years.,92.5
+LTIM,PRO,PRO_06,Company has delivered strong profit growth of 24.8% CAGR over last 5 years.,84.2
+LTIM,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 42.0%.,77.6
+LTIM,PRO,PRO_09,Company has strong interest coverage ratio of 28.2x.,94.9
+LTIM,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.11.,75.6
+LTIM,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.23x.,64.6
+LTIM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+LTIM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+M&M,PRO,PRO_01,Company has strong Return on Equity of 17.4% (≥15%).,63.6
+M&M,PRO,PRO_06,Company has delivered strong profit growth of 15.3% CAGR over last 5 years.,70.0
+M&M,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 21.0%.,60.8
+M&M,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+M&M,CON,CON_04,Company has negative Free Cash Flow of ₹-11245 Cr.,71.2
+M&M,CON,CON_12,Company's FCF Conversion of -0.92x suggests poor cash realisation from profits.,69.2
+M&M,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+MARUTI,PRO,PRO_01,Company has strong Return on Equity of 15.1% (≥15%).,60.2
+MARUTI,PRO,PRO_02,Company has strong Return on Capital Employed of 19.7% (≥15%).,67.1
+MARUTI,PRO,PRO_03,Company is almost debt free.,90.0
+MARUTI,PRO,PRO_04,Company generates positive Free Cash Flow of ₹4936 Cr.,66.9
+MARUTI,PRO,PRO_05,Company has delivered good revenue growth of 10.5% CAGR over last 5 years.,62.8
+MARUTI,PRO,PRO_06,Company has delivered strong profit growth of 12.0% CAGR over last 5 years.,65.0
+MARUTI,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 29.0%.,67.2
+MARUTI,PRO,PRO_09,Company has strong interest coverage ratio of 90.8x.,100.0
+MARUTI,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.17x.,63.4
+MARUTI,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+MARUTI,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+MOTHERSON,PRO,PRO_04,Company generates positive Free Cash Flow of ₹925 Cr.,62.9
+MOTHERSON,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.01x.,60.2
+MOTHERSON,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+MOTHERSON,CON,CON_01,Company has low Return on Equity of 9.2% (<10%).,61.5
+MOTHERSON,CON,CON_02,Company has low Return on Capital Employed of 9.7% (<10%).,60.5
+MOTHERSON,CON,CON_07,Company operates on thin net profit margins of 3.1%.,69.8
+MOTHERSON,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+NAUKRI,PRO,PRO_03,Company is almost debt free.,90.0
+NAUKRI,PRO,PRO_05,Company has delivered good revenue growth of 17.1% CAGR over last 5 years.,72.7
+NAUKRI,PRO,PRO_07,Company maintains a healthy net profit margin of 23.5%.,72.2
+NAUKRI,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 49.0%.,83.2
+NAUKRI,PRO,PRO_09,Company has strong interest coverage ratio of 26.1x.,91.6
+NAUKRI,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.01.,79.6
+NAUKRI,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+NAUKRI,CON,CON_01,Company has low Return on Equity of 1.4% (<10%).,77.2
+NAUKRI,CON,CON_02,Company has low Return on Capital Employed of 2.2% (<10%).,75.7
+NAUKRI,CON,CON_04,Company has negative Free Cash Flow of ₹-150 Cr.,60.1
+NAUKRI,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.05x.,72.5
+NAUKRI,CON,CON_12,Company's FCF Conversion of -0.25x suggests poor cash realisation from profits.,62.5
+NAUKRI,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+NESTLEIND,PRO,PRO_01,Company has strong Return on Equity of 98.6% (≥15%).,100.0
+NESTLEIND,PRO,PRO_02,Company has strong Return on Capital Employed of 124.6% (≥15%).,100.0
+NESTLEIND,PRO,PRO_03,Company is almost debt free.,90.0
+NESTLEIND,PRO,PRO_04,Company generates positive Free Cash Flow of ₹2938 Cr.,64.9
+NESTLEIND,PRO,PRO_05,Company has delivered good revenue growth of 14.6% CAGR over last 5 years.,68.8
+NESTLEIND,PRO,PRO_06,Company has delivered strong profit growth of 14.8% CAGR over last 5 years.,69.3
+NESTLEIND,PRO,PRO_07,Company maintains a healthy net profit margin of 16.1%.,63.3
+NESTLEIND,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 79.0%.,100.0
+NESTLEIND,PRO,PRO_09,Company has strong interest coverage ratio of 37.5x.,100.0
+NESTLEIND,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.09.,76.4
+NESTLEIND,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 2.20x.,84.0
+NESTLEIND,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.75x.,67.5
+NESTLEIND,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+NESTLEIND,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+NHPC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹970 Cr.,63.0
+NHPC,PRO,PRO_07,Company maintains a healthy net profit margin of 41.8%.,94.2
+NHPC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 53.0%.,86.4
+NHPC,PRO,PRO_09,Company has strong interest coverage ratio of 9.3x.,66.4
+NHPC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+NHPC,CON,CON_02,Company has low Return on Capital Employed of 7.6% (<10%).,64.8
+NHPC,CON,CON_05,Company has weak revenue growth of 1.4% CAGR over last 5 years.,74.4
+NHPC,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.10x.,70.0
+NHPC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+NTPC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹8644 Cr.,70.6
+NTPC,PRO,PRO_05,Company has delivered good revenue growth of 12.2% CAGR over last 5 years.,65.3
+NTPC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 36.0%.,72.8
+NTPC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+NTPC,CON,CON_02,Company has low Return on Capital Employed of 9.9% (<10%).,60.3
+NTPC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ONGC,PRO,PRO_01,Company has strong Return on Equity of 16.2% (≥15%).,61.8
+ONGC,PRO,PRO_02,Company has strong Return on Capital Employed of 16.0% (≥15%).,61.5
+ONGC,PRO,PRO_04,Company generates positive Free Cash Flow of ₹42060 Cr.,92.0
+ONGC,PRO,PRO_06,Company has delivered strong profit growth of 11.0% CAGR over last 5 years.,63.5
+ONGC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 31.0%.,68.8
+ONGC,PRO,PRO_09,Company has strong interest coverage ratio of 8.5x.,65.3
+ONGC,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.74x.,67.2
+ONGC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ONGC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+PFC,PRO,PRO_01,Company has strong Return on Equity of 24.1% (≥15%).,73.6
+PFC,PRO,PRO_05,Company has delivered good revenue growth of 11.1% CAGR over last 5 years.,63.6
+PFC,PRO,PRO_06,Company has delivered strong profit growth of 15.9% CAGR over last 5 years.,70.9
+PFC,PRO,PRO_07,Company maintains a healthy net profit margin of 28.9%.,78.7
+PFC,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 23.0%.,62.4
+PFC,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+PFC,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+PFC,CON,CON_04,Company has negative Free Cash Flow of ₹-101229 Cr.,90.0
+PFC,CON,CON_10,Company has elevated debt-to-equity ratio of 8.27x.,91.3
+PFC,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.08x.,71.0
+PFC,CON,CON_12,Company's FCF Conversion of -3.83x suggests poor cash realisation from profits.,98.3
+PFC,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+PIDILITIND,PRO,PRO_01,Company has strong Return on Equity of 20.1% (≥15%).,67.6
+PIDILITIND,PRO,PRO_02,Company has strong Return on Capital Employed of 26.7% (≥15%).,77.6
+PIDILITIND,PRO,PRO_03,Company is almost debt free.,90.0
+PIDILITIND,PRO,PRO_04,Company generates positive Free Cash Flow of ₹955 Cr.,63.0
+PIDILITIND,PRO,PRO_05,Company has delivered good revenue growth of 11.8% CAGR over last 5 years.,64.8
+PIDILITIND,PRO,PRO_06,Company has delivered strong profit growth of 13.5% CAGR over last 5 years.,67.2
+PIDILITIND,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 47.0%.,81.6
+PIDILITIND,PRO,PRO_09,Company has strong interest coverage ratio of 47.6x.,100.0
+PIDILITIND,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.04.,78.4
+PIDILITIND,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.55x.,61.5
+PIDILITIND,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+PIDILITIND,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+PNB,PRO,PRO_01,Company has strong Return on Equity of 61.3% (≥15%).,100.0
+PNB,PRO,PRO_05,Company has delivered good revenue growth of 15.9% CAGR over last 5 years.,70.8
+PNB,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.51x.,70.2
+PNB,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+PNB,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+PNB,CON,CON_04,Company has negative Free Cash Flow of ₹-29445 Cr.,89.4
+PNB,CON,CON_10,Company has elevated debt-to-equity ratio of 3.68x.,68.4
+PNB,CON,CON_12,Company's FCF Conversion of -3.22x suggests poor cash realisation from profits.,92.2
+PNB,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+POWERGRID,PRO,PRO_01,Company has strong Return on Equity of 16.9% (≥15%).,62.9
+POWERGRID,PRO,PRO_04,Company generates positive Free Cash Flow of ₹24176 Cr.,86.2
+POWERGRID,PRO,PRO_07,Company maintains a healthy net profit margin of 34.0%.,84.8
+POWERGRID,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 67.0%.,97.6
+POWERGRID,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.55x.,91.5
+POWERGRID,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+POWERGRID,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.18x.,66.0
+POWERGRID,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+RECLTD,PRO,PRO_01,Company has strong Return on Equity of 19.2% (≥15%).,66.4
+RECLTD,PRO,PRO_05,Company has delivered good revenue growth of 13.3% CAGR over last 5 years.,67.0
+RECLTD,PRO,PRO_06,Company has delivered strong profit growth of 19.8% CAGR over last 5 years.,76.6
+RECLTD,PRO,PRO_07,Company maintains a healthy net profit margin of 29.8%.,79.7
+RECLTD,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 30.0%.,68.0
+RECLTD,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+RECLTD,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+RECLTD,CON,CON_04,Company has negative Free Cash Flow of ₹-59554 Cr.,90.0
+RECLTD,CON,CON_10,Company has elevated debt-to-equity ratio of 6.58x.,82.9
+RECLTD,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.08x.,71.0
+RECLTD,CON,CON_12,Company's FCF Conversion of -4.21x suggests poor cash realisation from profits.,100.0
+RECLTD,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+RELIANCE,PRO,PRO_04,Company generates positive Free Cash Flow of ₹45207 Cr.,92.0
+RELIANCE,PRO,PRO_06,Company has delivered strong profit growth of 14.7% CAGR over last 5 years.,69.0
+RELIANCE,PRO,PRO_09,Company has strong interest coverage ratio of 5.5x.,60.8
+RELIANCE,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.44.,62.4
+RELIANCE,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.57x.,62.1
+RELIANCE,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+RELIANCE,CON,CON_01,Company has low Return on Equity of 9.6% (<10%).,60.7
+RELIANCE,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+SBILIFE,PRO,PRO_03,Company is almost debt free.,90.0
+SBILIFE,PRO,PRO_05,Company has delivered good revenue growth of 24.2% CAGR over last 5 years.,83.3
+SBILIFE,PRO,PRO_09,Company has strong interest coverage ratio of 231.9x.,100.0
+SBILIFE,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+SBILIFE,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+SBILIFE,CON,CON_04,Company has negative Free Cash Flow of ₹-2099 Cr.,62.1
+SBILIFE,CON,CON_07,Company operates on thin net profit margins of 1.4%.,76.3
+SBILIFE,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.29x.,60.5
+SBILIFE,CON,CON_12,Company's FCF Conversion of -1.11x suggests poor cash realisation from profits.,71.1
+SBILIFE,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+SHREECEM,PRO,PRO_03,Company is almost debt free.,90.0
+SHREECEM,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1929 Cr.,63.9
+SHREECEM,PRO,PRO_05,Company has delivered good revenue growth of 10.3% CAGR over last 5 years.,62.5
+SHREECEM,PRO,PRO_06,Company has delivered strong profit growth of 11.3% CAGR over last 5 years.,63.9
+SHREECEM,PRO,PRO_09,Company has strong interest coverage ratio of 12.5x.,71.2
+SHREECEM,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.08.,76.8
+SHREECEM,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.11x.,78.3
+SHREECEM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+SHREECEM,CON,CON_01,Company has low Return on Equity of 8.3% (<10%).,63.4
+SHREECEM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+SHRIRAMFIN,PRO,PRO_05,Company has delivered good revenue growth of 18.6% CAGR over last 5 years.,74.8
+SHRIRAMFIN,PRO,PRO_06,Company has delivered strong profit growth of 23.5% CAGR over last 5 years.,82.2
+SHRIRAMFIN,PRO,PRO_07,Company maintains a healthy net profit margin of 20.3%.,68.4
+SHRIRAMFIN,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 23.0%.,62.4
+SHRIRAMFIN,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+SHRIRAMFIN,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+SHRIRAMFIN,CON,CON_04,Company has negative Free Cash Flow of ₹-31359 Cr.,90.0
+SHRIRAMFIN,CON,CON_10,Company has elevated debt-to-equity ratio of 3.97x.,69.8
+SHRIRAMFIN,CON,CON_11,Company shows poor asset utilisation with Asset Turnover of 0.13x.,68.5
+SHRIRAMFIN,CON,CON_12,Company's FCF Conversion of -4.24x suggests poor cash realisation from profits.,100.0
+SHRIRAMFIN,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+SIEMENS,PRO,PRO_01,Company has strong Return on Equity of 17.7% (≥15%).,64.0
+SIEMENS,PRO,PRO_02,Company has strong Return on Capital Employed of 23.7% (≥15%).,73.0
+SIEMENS,PRO,PRO_03,Company is almost debt free.,90.0
+SIEMENS,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1168 Cr.,63.2
+SIEMENS,PRO,PRO_05,Company has delivered good revenue growth of 11.2% CAGR over last 5 years.,63.8
+SIEMENS,PRO,PRO_06,Company has delivered strong profit growth of 19.9% CAGR over last 5 years.,76.8
+SIEMENS,PRO,PRO_09,Company has strong interest coverage ratio of 61.6x.,100.0
+SIEMENS,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.02.,79.2
+SIEMENS,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+SIEMENS,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+SUNPHARMA,PRO,PRO_02,Company has strong Return on Capital Employed of 15.8% (≥15%).,61.2
+SUNPHARMA,PRO,PRO_03,Company is almost debt free.,90.0
+SUNPHARMA,PRO,PRO_04,Company generates positive Free Cash Flow of ₹11372 Cr.,73.4
+SUNPHARMA,PRO,PRO_05,Company has delivered good revenue growth of 10.8% CAGR over last 5 years.,63.2
+SUNPHARMA,PRO,PRO_06,Company has delivered strong profit growth of 24.5% CAGR over last 5 years.,83.8
+SUNPHARMA,PRO,PRO_07,Company maintains a healthy net profit margin of 19.8%.,67.8
+SUNPHARMA,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 34.0%.,71.2
+SUNPHARMA,PRO,PRO_09,Company has strong interest coverage ratio of 47.6x.,100.0
+SUNPHARMA,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.04.,78.4
+SUNPHARMA,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.18x.,80.4
+SUNPHARMA,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+SUNPHARMA,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TATACONSUM,PRO,PRO_04,Company generates positive Free Cash Flow of ₹26 Cr.,62.0
+TATACONSUM,PRO,PRO_05,Company has delivered good revenue growth of 16.0% CAGR over last 5 years.,70.9
+TATACONSUM,PRO,PRO_06,Company has delivered strong profit growth of 21.6% CAGR over last 5 years.,79.4
+TATACONSUM,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 64.0%.,95.2
+TATACONSUM,PRO,PRO_09,Company has strong interest coverage ratio of 20.5x.,83.2
+TATACONSUM,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.15.,74.0
+TATACONSUM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TATACONSUM,CON,CON_01,Company has low Return on Equity of 6.3% (<10%).,67.3
+TATACONSUM,CON,CON_02,Company has low Return on Capital Employed of 8.1% (<10%).,63.9
+TATACONSUM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TATAMOTORS,PRO,PRO_01,Company has strong Return on Equity of 31.5% (≥15%).,84.7
+TATAMOTORS,PRO,PRO_02,Company has strong Return on Capital Employed of 18.3% (≥15%).,64.9
+TATAMOTORS,PRO,PRO_04,Company generates positive Free Cash Flow of ₹45133 Cr.,92.0
+TATAMOTORS,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.12x.,62.4
+TATAMOTORS,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.42x.,87.6
+TATAMOTORS,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TATAMOTORS,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TATAPOWER,PRO,PRO_04,Company generates positive Free Cash Flow of ₹3569 Cr.,65.6
+TATAPOWER,PRO,PRO_05,Company has delivered good revenue growth of 15.5% CAGR over last 5 years.,70.3
+TATAPOWER,PRO,PRO_06,Company has delivered strong profit growth of 10.4% CAGR over last 5 years.,62.6
+TATAPOWER,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.83x.,69.9
+TATAPOWER,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TATAPOWER,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TATASTEEL,PRO,PRO_04,Company generates positive Free Cash Flow of ₹6048 Cr.,68.0
+TATASTEEL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TATASTEEL,CON,CON_01,Company has low Return on Equity of -5.5% (<10%).,90.9
+TATASTEEL,CON,CON_02,Company has low Return on Capital Employed of 3.4% (<10%).,73.3
+TATASTEEL,CON,CON_08,"Company has a low interest coverage ratio of 0.8x, indicating potential debt service risk.",76.5
+TATASTEEL,CON,CON_12,Company's FCF Conversion of -1.23x suggests poor cash realisation from profits.,72.3
+TATASTEEL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TCS,PRO,PRO_01,Company has strong Return on Equity of 45.4% (≥15%).,100.0
+TCS,PRO,PRO_02,Company has strong Return on Capital Employed of 56.8% (≥15%).,100.0
+TCS,PRO,PRO_03,Company is almost debt free.,90.0
+TCS,PRO,PRO_04,Company generates positive Free Cash Flow of ₹50429 Cr.,92.0
+TCS,PRO,PRO_05,Company has delivered good revenue growth of 10.5% CAGR over last 5 years.,62.7
+TCS,PRO,PRO_07,Company maintains a healthy net profit margin of 19.1%.,67.0
+TCS,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 58.0%.,90.4
+TCS,PRO,PRO_09,Company has strong interest coverage ratio of 80.7x.,100.0
+TCS,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.09.,76.4
+TCS,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.50x.,70.0
+TCS,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.83x.,69.9
+TCS,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TCS,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TECHM,PRO,PRO_03,Company is almost debt free.,90.0
+TECHM,PRO,PRO_04,Company generates positive Free Cash Flow of ₹5058 Cr.,67.1
+TECHM,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 150.0%.,100.0
+TECHM,PRO,PRO_09,Company has strong interest coverage ratio of 9.2x.,66.3
+TECHM,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.08.,76.8
+TECHM,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.21x.,64.2
+TECHM,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 2.11x.,100.0
+TECHM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TECHM,CON,CON_01,Company has low Return on Equity of 9.1% (<10%).,61.9
+TECHM,CON,CON_06,Company's net profit has declined at -11.0% CAGR over last 5 years.,82.0
+TECHM,CON,CON_07,Company operates on thin net profit margins of 4.6%.,63.6
+TECHM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TITAN,PRO,PRO_01,Company has strong Return on Equity of 35.9% (≥15%).,91.4
+TITAN,PRO,PRO_02,Company has strong Return on Capital Employed of 16.7% (≥15%).,62.5
+TITAN,PRO,PRO_04,Company generates positive Free Cash Flow of ₹1506 Cr.,63.5
+TITAN,PRO,PRO_05,Company has delivered good revenue growth of 20.9% CAGR over last 5 years.,78.3
+TITAN,PRO,PRO_06,Company has delivered strong profit growth of 20.3% CAGR over last 5 years.,77.4
+TITAN,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 28.0%.,66.4
+TITAN,PRO,PRO_09,Company has strong interest coverage ratio of 8.5x.,65.2
+TITAN,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.32x.,66.4
+TITAN,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TITAN,CON,CON_03,Company carries high financial leverage with D/E of 2.22x.,61.1
+TITAN,CON,CON_10,Company has elevated debt-to-equity ratio of 2.22x.,61.1
+TITAN,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TORNTPHARM,PRO,PRO_01,Company has strong Return on Equity of 22.1% (≥15%).,70.6
+TORNTPHARM,PRO,PRO_02,Company has strong Return on Capital Employed of 25.4% (≥15%).,75.7
+TORNTPHARM,PRO,PRO_04,Company generates positive Free Cash Flow of ₹3106 Cr.,65.1
+TORNTPHARM,PRO,PRO_06,Company has delivered strong profit growth of 30.6% CAGR over last 5 years.,92.9
+TORNTPHARM,PRO,PRO_07,Company maintains a healthy net profit margin of 15.4%.,62.5
+TORNTPHARM,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 57.0%.,89.6
+TORNTPHARM,PRO,PRO_09,Company has strong interest coverage ratio of 7.6x.,64.0
+TORNTPHARM,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.42.,63.2
+TORNTPHARM,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.88x.,100.0
+TORNTPHARM,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TORNTPHARM,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TRENT,PRO,PRO_01,Company has strong Return on Equity of 31.6% (≥15%).,84.8
+TRENT,PRO,PRO_02,Company has strong Return on Capital Employed of 35.1% (≥15%).,90.2
+TRENT,PRO,PRO_04,Company generates positive Free Cash Flow of ₹841 Cr.,62.8
+TRENT,PRO,PRO_05,Company has delivered good revenue growth of 36.3% CAGR over last 5 years.,100.0
+TRENT,PRO,PRO_06,Company has delivered strong profit growth of 73.1% CAGR over last 5 years.,100.0
+TRENT,PRO,PRO_09,Company has strong interest coverage ratio of 6.2x.,61.8
+TRENT,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.39.,64.4
+TRENT,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 1.50x.,70.0
+TRENT,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 0.57x.,62.1
+TRENT,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TRENT,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+TVSMOTOR,PRO,PRO_01,Company has strong Return on Equity of 22.9% (≥15%).,71.9
+TVSMOTOR,PRO,PRO_02,Company has strong Return on Capital Employed of 20.7% (≥15%).,68.5
+TVSMOTOR,PRO,PRO_05,Company has delivered good revenue growth of 14.2% CAGR over last 5 years.,68.3
+TVSMOTOR,PRO,PRO_06,Company has delivered strong profit growth of 19.7% CAGR over last 5 years.,76.5
+TVSMOTOR,PRO,PRO_08,Company has been maintaining a healthy dividend payout of 23.0%.,62.4
+TVSMOTOR,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+TVSMOTOR,CON,CON_04,Company has negative Free Cash Flow of ₹-2254 Cr.,62.3
+TVSMOTOR,CON,CON_07,Company operates on thin net profit margins of 4.5%.,63.8
+TVSMOTOR,CON,CON_12,Company's FCF Conversion of -1.27x suggests poor cash realisation from profits.,72.7
+TVSMOTOR,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+INDIGO,PRO,PRO_01,Company has strong Return on Equity of 857.0% (≥15%).,100.0
+INDIGO,PRO,PRO_02,Company has strong Return on Capital Employed of 1065.7% (≥15%).,100.0
+INDIGO,PRO,PRO_03,Company is almost debt free.,90.0
+INDIGO,PRO,PRO_04,Company generates positive Free Cash Flow of ₹9424 Cr.,71.4
+INDIGO,PRO,PRO_05,Company has delivered good revenue growth of 19.3% CAGR over last 5 years.,76.0
+INDIGO,PRO,PRO_06,Company has delivered strong profit growth of 120.7% CAGR over last 5 years.,100.0
+INDIGO,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.02.,79.2
+INDIGO,PRO,PRO_11,Company efficiently utilises assets with an Asset Turnover ratio of 55.61x.,100.0
+INDIGO,PRO,PRO_12,Company demonstrates strong cash conversion with FCF Conversion of 1.15x.,79.5
+INDIGO,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+INDIGO,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+INDIGO,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+ATGL,PRO,PRO_01,Company has strong Return on Equity of 17.1% (≥15%).,63.1
+ATGL,PRO,PRO_02,Company has strong Return on Capital Employed of 18.8% (≥15%).,65.6
+ATGL,PRO,PRO_05,Company has delivered good revenue growth of 21.1% CAGR over last 5 years.,78.6
+ATGL,PRO,PRO_06,Company has delivered strong profit growth of 23.9% CAGR over last 5 years.,82.8
+ATGL,PRO,PRO_09,Company has strong interest coverage ratio of 9.1x.,66.1
+ATGL,PRO,PRO_10,Company operates with a conservative debt-to-equity ratio of 0.37.,65.2
+ATGL,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+ATGL,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+ATGL,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
+SBIN,PRO,PRO_03,Company is almost debt free.,90.0
+SBIN,PRO,PRO_05,Company has delivered good revenue growth of 11.6% CAGR over last 5 years.,64.4
+SBIN,PRO,PRO_06,Company has delivered strong profit growth of 83.4% CAGR over last 5 years.,100.0
+SBIN,PRO,PRO_07,Company maintains a healthy net profit margin of 15.8%.,63.0
+SBIN,PRO,PRO_BASELINE,"Company is a Nifty 100 constituent, signifying size and liquidity benchmark status.",62.0
+SBIN,CON,CON_01,Company has low Return on Equity of 0.0% (<10%).,80.0
+SBIN,CON,CON_02,Company has low Return on Capital Employed of 0.0% (<10%).,80.0
+SBIN,CON,CON_09,"Company has not paid dividends, offering no income return to shareholders.",65.0
+SBIN,CON,CON_BASELINE,Stock valuation incorporates a premium that may limit near-term upside.,62.0
