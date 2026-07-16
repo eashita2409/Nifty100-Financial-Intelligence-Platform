@@ -26,7 +26,7 @@ latest_year = ratios_df['year'].max()
 latest_ratios = ratios_df[ratios_df['year'] == latest_year].copy()
 
 # Filter to rows that have a capital allocation pattern
-df = latest_ratios.merge(companies_df[['id', 'company_name']], left_on='company_id', right_on='id', how='left')
+df = latest_ratios.merge(companies_df[['company_id', 'company_name']], on='company_id', how='left')
 df_with_pattern = df.dropna(subset=['capital_allocation_pattern'])
 
 if df_with_pattern.empty:
@@ -39,7 +39,7 @@ if df_with_pattern.empty:
         all_with_pattern.sort_values('year')
         .groupby('company_id')
         .tail(1)
-        .merge(companies_df[['id', 'company_name']], left_on='company_id', right_on='id', how='left')
+        .merge(companies_df[['company_id', 'company_name']], on='company_id', how='left')
     )
 
 st.markdown(f"**Showing {len(df_with_pattern)} companies** with capital allocation patterns (Year: {int(latest_year)})")

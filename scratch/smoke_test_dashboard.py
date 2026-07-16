@@ -122,6 +122,13 @@ def test_sector():
     lmc = mc[mc['year'] == latest_year]
     df = df.merge(lmc[['company_id', 'market_cap_crore']], on='company_id', how='left')
     
+    pl = load_table('profitandloss')
+    latest_pl = pl[pl['year'] == latest_year]
+    if not latest_pl.empty:
+        df = df.merge(latest_pl[['company_id', 'sales']], on='company_id', how='left')
+    else:
+        df['sales'] = None
+    
     assert 'return_on_equity_pct' in df.columns
     assert 'company_name' in df.columns
     print(f'  Sector df: {len(df)} rows, {df["broad_sector"].nunique()} sectors')

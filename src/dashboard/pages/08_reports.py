@@ -23,7 +23,7 @@ if companies_df.empty:
 
 # Add sector info for filtering
 if not sectors_df.empty:
-    companies_enriched = companies_df.merge(sectors_df, left_on='id', right_on='company_id', how='left')
+    companies_enriched = companies_df.merge(sectors_df, on='company_id', how='left')
     broad_sectors = ['All'] + sorted(companies_enriched['broad_sector'].dropna().unique().tolist())
 else:
     companies_enriched = companies_df.copy()
@@ -58,7 +58,7 @@ with col_tear:
         st.write(f"**{len(pdfs)} tearsheets available**")
 
         if selected_company:
-            company_id = companies_enriched[companies_enriched['company_name'] == selected_company]['id'].values
+            company_id = companies_enriched[companies_enriched['company_name'] == selected_company]['company_id'].values
             if len(company_id) > 0:
                 cid = company_id[0]
                 # Try both naming conventions
@@ -134,7 +134,7 @@ else:
     if company_info.empty:
         st.warning("Company not found.")
     else:
-        comp_id = company_info.iloc[0]['id']
+        comp_id = company_info.iloc[0]['company_id']
         comp_docs = docs_df[docs_df['company_id'] == comp_id].copy()
 
         # Sort by year descending, handle NaN years

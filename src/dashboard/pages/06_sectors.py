@@ -31,7 +31,7 @@ latest_pl = pl_df[pl_df['year'] == latest_year] if not pl_df.empty else pd.DataF
 latest_mc = mc_df[mc_df['year'] == latest_year] if not mc_df.empty else pd.DataFrame()
 
 # Build combined sector dataframe
-df = sectors_df.merge(companies_df[['id', 'company_name']], left_on='company_id', right_on='id')
+df = sectors_df.merge(companies_df[['company_id', 'company_name']], on='company_id')
 df = df.merge(latest_ratios, on='company_id', how='left')
 
 if not latest_pl.empty:

@@ -23,7 +23,7 @@ if companies_df.empty:
     st.stop()
 
 # Search by ticker/company
-options = companies_df['id'] + " - " + companies_df['company_name']
+options = companies_df['company_id'] + " - " + companies_df['company_name']
 selected_option = st.selectbox("Search Company", options=options, index=None, placeholder="Type to search...")
 
 if not selected_option:
@@ -32,7 +32,7 @@ else:
     selected_id = selected_option.split(" - ")[0]
 
     # Fetch Company Data
-    company_info = companies_df[companies_df['id'] == selected_id].iloc[0]
+    company_info = companies_df[companies_df['company_id'] == selected_id].iloc[0]
     sectors_df = get_sectors()
     sector_info = (
         sectors_df[sectors_df['company_id'] == selected_id].iloc[0]
@@ -44,7 +44,7 @@ else:
     st.markdown("### Company Information")
     col_info1, col_info2, col_info3 = st.columns(3)
     col_info1.metric("Name", company_info['company_name'])
-    col_info2.metric("Ticker", company_info['id'])
+    col_info2.metric("Ticker", company_info['company_id'])
     col_info3.metric("Sector", sector_info['broad_sector'] if sector_info is not None else "N/A")
 
     st.markdown("---")

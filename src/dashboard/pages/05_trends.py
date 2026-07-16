@@ -28,7 +28,7 @@ selected_company = st.selectbox("Search Company", company_options)
 
 if selected_company:
     company_info = companies_df[companies_df['company_name'] == selected_company].iloc[0]
-    comp_id = company_info['id']
+    comp_id = company_info['company_id']
 
     comp_ratios = ratios_df[ratios_df['company_id'] == comp_id]
     comp_pl = pl_df[pl_df['company_id'] == comp_id]

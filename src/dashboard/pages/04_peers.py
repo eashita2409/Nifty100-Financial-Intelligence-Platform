@@ -41,7 +41,7 @@ else:
     percentiles_latest = percentiles_df[percentiles_df['year'] == latest_year]
 
     # Merge to get company names and percentiles
-    group_data = group_companies.merge(companies_df, left_on='company_id', right_on='id', how='inner')
+    group_data = group_companies.merge(companies_df, on='company_id', how='inner')
     group_data = group_data.merge(percentiles_latest, on='company_id', how='left')
 
     # Radar metrics available

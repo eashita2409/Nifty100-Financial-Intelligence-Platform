@@ -65,7 +65,19 @@ Launch the full interactive analytical frontend locally:
 ```bash
 streamlit run src/dashboard/app.py
 ```
-*Navigate to `http://localhost:8501`. Use the sidebar to swap between Profile, Sector Analysis, and Peer comparisons.*
+*Navigate to your local address (usually `http://localhost:8501`). Use the sidebar to swap between Profile, Sector Analysis, and Peer comparisons.*
+
+## 🚀 Live Demo & Deployment
+
+This repository is configured for **Streamlit Community Cloud** deployment out-of-the-box.
+
+1. Fork this repository to your GitHub account.
+2. Log in to [Streamlit Community Cloud](https://share.streamlit.io/).
+3. Click **New App** and select your repository.
+4. Set the **Main file path** to `src/dashboard/app.py`.
+5. Click **Deploy**.
+
+All data paths use dynamic resolution (`Path(__file__).resolve()`) ensuring cross-platform Linux and Windows compatibility.
 
 ## ⚡ FastAPI Backend Usage
 

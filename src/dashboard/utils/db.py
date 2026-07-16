@@ -24,7 +24,8 @@ def get_companies():
     if not db_path.exists():
         return pd.DataFrame()
     with sqlite3.connect(db_path) as conn:
-        return pd.read_sql_query("SELECT * FROM companies", conn)
+        df = pd.read_sql_query("SELECT * FROM companies", conn)
+        return df.rename(columns={'id': 'company_id'})
 
 @st.cache_data(ttl=600)
 def get_ratios():
