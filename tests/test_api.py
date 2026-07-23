@@ -66,23 +66,6 @@ def test_get_profit_loss(client):
     assert data["company_id"] == "RELIANCE"
     assert isinstance(data["profit_loss"], list)
 
-    data = response.json()
-    assert data["company_id"] == "RELIANCE"
-    # pros removed
-    # cons removed
-
-    data = response.json()
-    # sector removed
-    # peers removed
-
-    data = response.json()
-    # sector removed
-    assert "company_count" in data
-
-    data = response.json()
-    assert "total_companies" in data
-    assert "total_market_cap" in data
-    assert "sectors_count" in data
 
 def test_get_cluster(client):
     # Depending on generated CSV, this might return 404 or 200
