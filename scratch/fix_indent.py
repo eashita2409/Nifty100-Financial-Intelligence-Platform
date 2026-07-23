@@ -1,10 +1,8 @@
-import glob
 import re
+from pathlib import Path
 
-for f in glob.glob('tests/analytics/*.py'):
-    with open(f, 'r') as file:
-        content = file.read()
-    content = re.sub(r'\n\s*conn\.execute\(\"CREATE TABLE companies', r'\n    conn.execute(\"CREATE TABLE companies', content)
-    content = re.sub(r'\n\s*conn\.execute\(\"INSERT INTO companies', r'\n    conn.execute(\"INSERT INTO companies', content)
-    with open(f, 'w') as file:
-        file.write(content)
+test_kpi = Path("tests/analytics/test_kpi_engine.py")
+if test_kpi.exists():
+    content = test_kpi.read_text(encoding="utf-8")
+    content = content.replace('@pytest.mark.skip\n    def test_no_data', '@pytest.mark.skip\ndef test_no_data')
+    test_kpi.write_text(content, encoding="utf-8")

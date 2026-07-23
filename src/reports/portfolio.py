@@ -71,6 +71,8 @@ def load_data():
     ratios = ratios.dropna(subset=['year'])
 
     # Merge sector
+    if 'companies' in locals() and hasattr(companies, 'columns') and 'company_id' in companies.columns: companies['company_id'] = companies['company_id'].astype(str).str.strip().str.upper()
+    if 'sectors' in locals() and hasattr(sectors, 'columns') and 'company_id' in sectors.columns: sectors['company_id'] = sectors['company_id'].astype(str).str.strip().str.upper()
     merged = companies.merge(sectors, left_on="id", right_on="company_id", how="left")
     return merged, ratios
 

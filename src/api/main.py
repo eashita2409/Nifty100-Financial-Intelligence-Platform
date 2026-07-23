@@ -1,16 +1,19 @@
-from fastapi import FastAPI
+import time
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import system, companies, financials, analytics
+from .routers import system, companies, sectors, peers, valuation, portfolio, documents
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("api")
 
 app = FastAPI(
     title="Nifty100 Financial Intelligence API",
-    description="Production-ready FastAPI backend for Nifty100 Financial Intelligence Platform.",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
 )
 
-# Configure CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,12 +22,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include Routers
-app.include_router(system.router)
-app.include_router(companies.router)
-app.include_router(financials.router)
-app.include_router(analytics.router)
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    logger.info(f"{request.method} {request.url.path} - {response.status_code} - {process_time:.4f}s")
+    return response
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("src.api.main:app", host="0.0.0.0", port=8000, reload=True)
+app.state.START_TIME = time.time()
+
+app.include_router(system.router, prefix="/api/v1")
+app.include_router(companies.router, prefix="/api/v1")
+app.include_router(sectors.router, prefix="/api/v1")
+app.include_router(peers.router, prefix="/api/v1")
+app.include_router(valuation.router, prefix="/api/v1")
+app.include_router(portfolio.router, prefix="/api/v1")
+app.include_router(documents.router, prefix="/api/v1")

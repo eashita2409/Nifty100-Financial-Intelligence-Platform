@@ -2,7 +2,8 @@ import sqlite3
 import pandas as pd
 from typing import Optional, Tuple
 
-def calculate_cagr(start_val: Optional[float], end_val: Optional[float], years: int) -> Tuple[Optional[float], Optional[str]]:
+from typing import Union
+def calculate_cagr(start_val: Optional[float], end_val: Optional[float], years: int) -> Tuple[Union[float, str, None], Optional[str]]:
     """
     Calculate Compound Annual Growth Rate and return a tuple of (CAGR_pct, anomaly_flag).
     
@@ -28,7 +29,7 @@ def calculate_cagr(start_val: Optional[float], end_val: Optional[float], years: 
         return None, "positive_to_negative"
         
     if start_val < 0 and end_val > 0:
-        return None, "negative_to_positive"
+        return 'TURNAROUND', "negative_to_positive"
         
     if start_val < 0 and end_val < 0:
         return None, "negative_to_negative"

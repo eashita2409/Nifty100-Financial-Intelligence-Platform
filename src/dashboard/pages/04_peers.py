@@ -41,7 +41,11 @@ else:
     percentiles_latest = percentiles_df[percentiles_df['year'] == latest_year]
 
     # Merge to get company names and percentiles
+    if 'group_companies' in locals() and hasattr(group_companies, 'columns') and 'company_id' in group_companies.columns: group_companies['company_id'] = group_companies['company_id'].astype(str).str.strip().str.upper()
+    if 'companies_df' in locals() and hasattr(companies_df, 'columns') and 'company_id' in companies_df.columns: companies_df['company_id'] = companies_df['company_id'].astype(str).str.strip().str.upper()
     group_data = group_companies.merge(companies_df, on='company_id', how='inner')
+    if 'group_data' in locals() and hasattr(group_data, 'columns') and 'company_id' in group_data.columns: group_data['company_id'] = group_data['company_id'].astype(str).str.strip().str.upper()
+    if 'percentiles_latest' in locals() and hasattr(percentiles_latest, 'columns') and 'company_id' in percentiles_latest.columns: percentiles_latest['company_id'] = percentiles_latest['company_id'].astype(str).str.strip().str.upper()
     group_data = group_data.merge(percentiles_latest, on='company_id', how='left')
 
     # Radar metrics available
@@ -50,7 +54,7 @@ else:
         'roce_rank': 'ROCE',
         'npm_rank': 'Net Profit Margin',
         'debt_equity_rank': 'Debt/Equity',
-        'fcf_rank': 'Free Cash Flow',
+        'fcf_rank': 'Free Cash Flow (INR Crore)',
         'revenue_cagr_rank': 'Rev CAGR (5Y)'
     }
 

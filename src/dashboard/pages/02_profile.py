@@ -70,8 +70,8 @@ else:
         kpi2.metric("ROCE", safe_fmt(latest_ratios.get('return_on_capital_employed_pct', pd.NA), suffix="%"))
         kpi3.metric("Net Profit Margin", safe_fmt(latest_ratios.get('net_profit_margin_pct', pd.NA), suffix="%"))
         kpi4.metric("Debt / Equity", safe_fmt(latest_ratios.get('debt_to_equity', pd.NA)))
-        kpi5.metric("Revenue CAGR (5y)", safe_fmt(latest_ratios.get('revenue_cagr_5yr', pd.NA), suffix="%"))
-        kpi6.metric("Latest FCF", safe_fmt(latest_ratios.get('free_cash_flow_cr', pd.NA), suffix=" Cr"))
+        kpi5.metric("Revenue (INR Crore) CAGR (5y)", safe_fmt(latest_ratios.get('revenue_cagr_5yr', pd.NA), suffix="%"))
+        kpi6.metric("Latest FCF (INR Crore)", safe_fmt(latest_ratios.get('free_cash_flow_cr', pd.NA), suffix=" Cr"))
 
         # Capital Allocation
         cap_alloc = latest_ratios.get('capital_allocation_pattern', None)
@@ -89,7 +89,7 @@ else:
     col_chart1, col_chart2 = st.columns(2)
 
     with col_chart1:
-        st.subheader("Revenue & Net Profit (10Y)")
+        st.subheader("Revenue (INR Crore) & Net Profit (10Y)")
         if not company_pl.empty:
             fig1 = px.bar(
                 company_pl, x='year', y=['sales', 'net_profit'],
@@ -171,9 +171,9 @@ else:
         elif pd.notna(de) and de > 1.5:
             cons_text.append("High Debt to Equity ratio (>1.5)")
         if pd.notna(fcf) and fcf > 0:
-            pros_text.append("Positive Free Cash Flow")
+            pros_text.append("Positive Free Cash Flow (INR Crore)")
         elif pd.notna(fcf) and fcf < 0:
-            cons_text.append("Negative Free Cash Flow")
+            cons_text.append("Negative Free Cash Flow (INR Crore)")
 
     col_p, col_c = st.columns(2)
     with col_p:

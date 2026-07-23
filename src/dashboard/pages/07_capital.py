@@ -26,6 +26,8 @@ latest_year = ratios_df['year'].max()
 latest_ratios = ratios_df[ratios_df['year'] == latest_year].copy()
 
 # Filter to rows that have a capital allocation pattern
+if 'latest_ratios' in locals() and hasattr(latest_ratios, 'columns') and 'company_id' in latest_ratios.columns: latest_ratios['company_id'] = latest_ratios['company_id'].astype(str).str.strip().str.upper()
+if 'companies_df' in locals() and hasattr(companies_df, 'columns') and 'company_id' in companies_df.columns: companies_df['company_id'] = companies_df['company_id'].astype(str).str.strip().str.upper()
 df = latest_ratios.merge(companies_df[['company_id', 'company_name']], on='company_id', how='left')
 df_with_pattern = df.dropna(subset=['capital_allocation_pattern'])
 
@@ -91,7 +93,7 @@ if selected_pattern:
     col2.metric("Median ROE", f"{median_roe:.2f}%" if pd.notna(median_roe) else "N/A")
 
     median_fcf = pattern_df['free_cash_flow_cr'].median()
-    col3.metric("Median FCF (Cr)", f"{median_fcf:,.0f}" if pd.notna(median_fcf) else "N/A")
+    col3.metric("Median FCF (INR Crore) (Cr)", f"{median_fcf:,.0f}" if pd.notna(median_fcf) else "N/A")
 
     median_de = pattern_df['debt_to_equity'].median()
     col4.metric("Median D/E", f"{median_de:.2f}" if pd.notna(median_de) else "N/A")
@@ -108,7 +110,7 @@ if selected_pattern:
         'company_name': 'Company',
         'return_on_equity_pct': 'ROE (%)',
         'return_on_capital_employed_pct': 'ROCE (%)',
-        'free_cash_flow_cr': 'FCF (Cr)',
+        'free_cash_flow_cr': 'FCF (INR Crore) (Cr)',
         'debt_to_equity': 'D/E',
         'revenue_cagr_5yr': 'Rev CAGR 5Y (%)',
     }

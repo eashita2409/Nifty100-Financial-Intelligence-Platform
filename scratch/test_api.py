@@ -1,60 +1,41 @@
-import requests
-import time
+import sys
+from fastapi.testclient import TestClient
+from src.api.main import app
 
-BASE_URL = "http://127.0.0.1:8000"
+client = TestClient(app)
 
-def check(endpoint: str, method: str = "GET", payload: dict = None):
-    url = f"{BASE_URL}{endpoint}"
-    try:
-        if method == "GET":
-            response = requests.get(url)
-        else:
-            response = requests.post(url, json=payload)
-        
-        if response.status_code == 200:
-            print(f"[PASS] {method} {endpoint}")
-        else:
-            print(f"[FAIL] {method} {endpoint} - Status {response.status_code}")
-            print(response.json())
-    except Exception as e:
-        print(f"[ERROR] {method} {endpoint} - {str(e)}")
+endpoints = [
+    ("GET", "/api/v1/health", 200),
+    ("GET", "/api/v1/companies", 200),
+    ("GET", "/api/v1/companies/RELIANCE", 200),
+    ("GET", "/api/v1/companies/RELIANCE/pl", 200),
+    ("GET", "/api/v1/companies/RELIANCE/bs", 200),
+    ("GET", "/api/v1/companies/RELIANCE/cashflow", 200),
+    ("GET", "/api/v1/companies/RELIANCE/ratios", 200),
+    ("GET", "/api/v1/companies/RELIANCE/tearsheet", 200),
+    ("GET", "/api/v1/screener?min_market_cap=10000", 200),
+    ("GET", "/api/v1/screener?min_market_cap=200&max_market_cap=100", 400), # Invalid
+    ("GET", "/api/v1/sectors", 200),
+    ("GET", "/api/v1/sectors/Energy/companies", 200),
+    ("GET", "/api/v1/peers/some_group", 404), # Group not found, but proper 404
+    ("GET", "/api/v1/companies/RELIANCE/peers/compare", 200),
+    ("GET", "/api/v1/market-cap/RELIANCE", 200),
+    ("GET", "/api/v1/portfolio/stats", 200),
+    ("GET", "/api/v1/companies/RELIANCE/documents", 200),
+    ("GET", "/api/v1/companies/INVALIDCOMPANY", 404)
+]
 
-def run_tests():
-    print("Waiting for server to start...")
-    time.sleep(5)
-    print("Testing 16 API Endpoints...\n")
-    
-    check("/health")
-    check("/version")
-    check("/companies")
-    check("/company/RELIANCE")
-    check("/ratios/RELIANCE")
-    check("/valuation/RELIANCE")
-    check("/cashflow/RELIANCE")
-    check("/balance-sheet/RELIANCE")
-    check("/profit-loss/RELIANCE")
-    check("/pros-cons/RELIANCE")
-    check("/peer/RELIANCE")
-    check("/sector/Energy")
-    check("/dashboard-summary")
-    check("/cluster/Fund_11") # from sprint 6 clustering
-    check("/screener?min_market_cap=10000")
-    check("/recommend", method="POST", payload={"risk_profile": "Low"})
-    
-    print("\nTesting 404...")
-    url = f"{BASE_URL}/company/NOTFOUND"
-    res = requests.get(url)
-    if res.status_code == 404:
-        print("[PASS] 404 Error handling")
-    else:
-        print(f"[FAIL] Expected 404, got {res.status_code}")
-        
-    print("\nTesting Swagger UI...")
-    docs_res = requests.get(f"{BASE_URL}/docs")
-    if docs_res.status_code == 200:
-        print("[PASS] Swagger UI loaded")
-    else:
-        print(f"[FAIL] Swagger UI failed: {docs_res.status_code}")
+print(f"{'endpoint':<50} | {'expected status':<15} | {'actual status':<15} | {'PASS/FAIL'}")
+print("-" * 100)
 
-if __name__ == "__main__":
-    run_tests()
+all_pass = True
+for method, url, expected in endpoints:
+    if method == "GET":
+        resp = client.get(url)
+        actual = resp.status_code
+        status = "PASS" if actual == expected else "FAIL"
+        if status == "FAIL":
+            all_pass = False
+        print(f"{url:<50} | {expected:<15} | {actual:<15} | {status}")
+
+sys.exit(0 if all_pass else 1)

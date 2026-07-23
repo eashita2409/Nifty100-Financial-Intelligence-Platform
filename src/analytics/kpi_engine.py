@@ -63,16 +63,28 @@ class KPIEngine:
         
         # Merge all temporal data on company_id and year
         logger.info("Merging datasets...")
+        if 'pnl' in locals() and hasattr(pnl, 'columns') and 'company_id' in pnl.columns: pnl['company_id'] = pnl['company_id'].astype(str).str.strip().str.upper()
+        if 'ratios' in locals() and hasattr(ratios, 'columns') and 'company_id' in ratios.columns: ratios['company_id'] = ratios['company_id'].astype(str).str.strip().str.upper()
         merged = pnl.merge(ratios, on=['company_id', 'year'], how='outer')
+        if 'merged' in locals() and hasattr(merged, 'columns') and 'company_id' in merged.columns: merged['company_id'] = merged['company_id'].astype(str).str.strip().str.upper()
+        if 'bs' in locals() and hasattr(bs, 'columns') and 'company_id' in bs.columns: bs['company_id'] = bs['company_id'].astype(str).str.strip().str.upper()
         merged = merged.merge(bs, on=['company_id', 'year'], how='outer')
+        if 'merged' in locals() and hasattr(merged, 'columns') and 'company_id' in merged.columns: merged['company_id'] = merged['company_id'].astype(str).str.strip().str.upper()
+        if 'mc' in locals() and hasattr(mc, 'columns') and 'company_id' in mc.columns: mc['company_id'] = mc['company_id'].astype(str).str.strip().str.upper()
         merged = merged.merge(mc, on=['company_id', 'year'], how='outer')
+        if 'merged' in locals() and hasattr(merged, 'columns') and 'company_id' in merged.columns: merged['company_id'] = merged['company_id'].astype(str).str.strip().str.upper()
+        if 'cashflow' in locals() and hasattr(cashflow, 'columns') and 'company_id' in cashflow.columns: cashflow['company_id'] = cashflow['company_id'].astype(str).str.strip().str.upper()
         merged = merged.merge(cashflow, on=['company_id', 'year'], how='outer')
         
         # Keep only the latest valid year per company
         latest = merged.dropna(subset=['year']).sort_values('year').groupby('company_id').tail(1).copy()
         
         # Merge with non-temporal data (companies, analysis)
+        if 'latest' in locals() and hasattr(latest, 'columns') and 'company_id' in latest.columns: latest['company_id'] = latest['company_id'].astype(str).str.strip().str.upper()
+        if 'companies' in locals() and hasattr(companies, 'columns') and 'company_id' in companies.columns: companies['company_id'] = companies['company_id'].astype(str).str.strip().str.upper()
         latest = latest.merge(companies, on='company_id', how='left')
+        if 'latest' in locals() and hasattr(latest, 'columns') and 'company_id' in latest.columns: latest['company_id'] = latest['company_id'].astype(str).str.strip().str.upper()
+        if 'analysis' in locals() and hasattr(analysis, 'columns') and 'company_id' in analysis.columns: analysis['company_id'] = analysis['company_id'].astype(str).str.strip().str.upper()
         latest = latest.merge(analysis, on='company_id', how='left')
         
         logger.info("Calculating Derived Metrics (Ratios, PEG)...")

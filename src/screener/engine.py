@@ -97,9 +97,17 @@ class ScreenerEngine:
             analysis = pd.read_sql_query("SELECT company_id, compounded_sales_growth as five_year_cagr FROM analysis WHERE compounded_sales_growth LIKE '5 Years%'", conn)
             
             # Merge temporal datasets
+            if 'pnl' in locals() and hasattr(pnl, 'columns') and 'company_id' in pnl.columns: pnl['company_id'] = pnl['company_id'].astype(str).str.strip().str.upper()
+            if 'ratios' in locals() and hasattr(ratios, 'columns') and 'company_id' in ratios.columns: ratios['company_id'] = ratios['company_id'].astype(str).str.strip().str.upper()
             merged = pnl.merge(ratios, on=['company_id', 'year'], how='outer')
+            if 'merged' in locals() and hasattr(merged, 'columns') and 'company_id' in merged.columns: merged['company_id'] = merged['company_id'].astype(str).str.strip().str.upper()
+            if 'bs' in locals() and hasattr(bs, 'columns') and 'company_id' in bs.columns: bs['company_id'] = bs['company_id'].astype(str).str.strip().str.upper()
             merged = merged.merge(bs, on=['company_id', 'year'], how='outer')
+            if 'merged' in locals() and hasattr(merged, 'columns') and 'company_id' in merged.columns: merged['company_id'] = merged['company_id'].astype(str).str.strip().str.upper()
+            if 'mc' in locals() and hasattr(mc, 'columns') and 'company_id' in mc.columns: mc['company_id'] = mc['company_id'].astype(str).str.strip().str.upper()
             merged = merged.merge(mc, on=['company_id', 'year'], how='outer')
+            if 'merged' in locals() and hasattr(merged, 'columns') and 'company_id' in merged.columns: merged['company_id'] = merged['company_id'].astype(str).str.strip().str.upper()
+            if 'cashflow' in locals() and hasattr(cashflow, 'columns') and 'company_id' in cashflow.columns: cashflow['company_id'] = cashflow['company_id'].astype(str).str.strip().str.upper()
             merged = merged.merge(cashflow, on=['company_id', 'year'], how='outer')
             
             # Filter by target_year or get latest valid year per company
@@ -109,8 +117,14 @@ class ScreenerEngine:
                 latest = merged.dropna(subset=['year']).sort_values('year').groupby('company_id').tail(1).copy()
             
             # Merge with metadata
+            if 'latest' in locals() and hasattr(latest, 'columns') and 'company_id' in latest.columns: latest['company_id'] = latest['company_id'].astype(str).str.strip().str.upper()
+            if 'companies' in locals() and hasattr(companies, 'columns') and 'company_id' in companies.columns: companies['company_id'] = companies['company_id'].astype(str).str.strip().str.upper()
             latest = latest.merge(companies, on='company_id', how='left')
+            if 'latest' in locals() and hasattr(latest, 'columns') and 'company_id' in latest.columns: latest['company_id'] = latest['company_id'].astype(str).str.strip().str.upper()
+            if 'sectors' in locals() and hasattr(sectors, 'columns') and 'company_id' in sectors.columns: sectors['company_id'] = sectors['company_id'].astype(str).str.strip().str.upper()
             latest = latest.merge(sectors, on='company_id', how='left')
+            if 'latest' in locals() and hasattr(latest, 'columns') and 'company_id' in latest.columns: latest['company_id'] = latest['company_id'].astype(str).str.strip().str.upper()
+            if 'analysis' in locals() and hasattr(analysis, 'columns') and 'company_id' in analysis.columns: analysis['company_id'] = analysis['company_id'].astype(str).str.strip().str.upper()
             latest = latest.merge(analysis, on='company_id', how='left')
             
             # Calculate current_ratio and quick_ratio

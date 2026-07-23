@@ -44,14 +44,14 @@ if selected_company:
         st.info(f"Data available for {years_available} years")
 
         metric_map = {
-            'Revenue (Cr)': 'sales',
+            'Revenue (INR Crore) (Cr)': 'sales',
             'Net Profit (Cr)': 'net_profit',
             'ROE (%)': 'return_on_equity_pct',
             'ROCE (%)': 'return_on_capital_employed_pct',
             'OPM (%)': 'opm_percentage',
-            'Revenue CAGR 5Y (%)': 'revenue_cagr_5yr',
-            'PAT CAGR 5Y (%)': 'pat_cagr_5yr',
-            'FCF (Cr)': 'free_cash_flow_cr',
+            'Revenue (INR Crore) CAGR 5Y (%)': 'revenue_cagr_5yr',
+            'PAT (INR Crore) CAGR 5Y (%)': 'pat_cagr_5yr',
+            'FCF (INR Crore) (Cr)': 'free_cash_flow_cr',
             'Debt to Equity': 'debt_to_equity',
             'Asset Turnover': 'asset_turnover',
             'Net Profit Margin (%)': 'net_profit_margin_pct',
@@ -64,7 +64,7 @@ if selected_company:
         selected_metrics = st.multiselect(
             "Select Metrics (Max 4)",
             available_metrics,
-            default=[m for m in ['Revenue (Cr)', 'Net Profit (Cr)'] if m in available_metrics],
+            default=[m for m in ['Revenue (INR Crore) (Cr)', 'Net Profit (Cr)'] if m in available_metrics],
             max_selections=4
         )
 

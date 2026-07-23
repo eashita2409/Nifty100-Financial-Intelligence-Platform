@@ -10,6 +10,8 @@ def run_investor_behaviour_analytics():
     transactions_df = pd.read_csv('data/processed/sip_transactions.csv', parse_dates=['date'])
     
     # Merge transactions with investor cohort info
+    if 'pd' in locals() and hasattr(pd, 'columns') and 'company_id' in pd.columns: pd['company_id'] = pd['company_id'].astype(str).str.strip().str.upper()
+    if 'transactions_df' in locals() and hasattr(transactions_df, 'columns') and 'company_id' in transactions_df.columns: transactions_df['company_id'] = transactions_df['company_id'].astype(str).str.strip().str.upper()
     df = pd.merge(transactions_df, investors_df, on='investor_id', how='left')
     
     # ---------------------------------------------------------

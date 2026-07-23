@@ -4,18 +4,17 @@ import os
 from typing import Dict, Any, List
 from ..utils import check_company_exists
 from ..schemas import RecommendRequest, Recommendation
+from pathlib import Path
+
+_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
 def get_pros_cons(conn: sqlite3.Connection, ticker: str) -> Dict[str, Any]:
     check_company_exists(conn, ticker)
     
     # Pros & Cons with confidence are in the CSV generated during Sprint 5
-    csv_path = 'output/pros_cons_generated.csv'
-    if not os.path.exists(csv_path):
-        fallback_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), 'output', 'pros_cons_generated.csv')
-        if os.path.exists(fallback_path):
-            csv_path = fallback_path
-        else:
-            return {"company_id": ticker, "pros": [], "cons": []}
+    csv_path = _ROOT / 'output' / 'pros_cons_generated.csv'
+    if not csv_path.exists():
+        return {"company_id": ticker, "pros": [], "cons": []}
             
     df = pd.read_csv(csv_path)
     matching = df[df['company_id'] == ticker]
@@ -60,13 +59,9 @@ def get_dashboard_summary(conn: sqlite3.Connection) -> Dict[str, Any]:
 
 def get_cluster(ticker: str) -> Dict[str, Any]:
     # Cluster labels were generated and saved in output/cluster_labels.csv
-    csv_path = 'output/cluster_labels.csv'
-    if not os.path.exists(csv_path):
-        fallback_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), 'output', 'cluster_labels.csv')
-        if os.path.exists(fallback_path):
-            csv_path = fallback_path
-        else:
-            return None
+    csv_path = _ROOT / 'output' / 'cluster_labels.csv'
+    if not csv_path.exists():
+        return None
             
     df = pd.read_csv(csv_path)
     matching = df[df['Scheme'] == ticker]
@@ -83,13 +78,9 @@ def get_cluster(ticker: str) -> Dict[str, Any]:
     }
 
 def get_recommendations(req: RecommendRequest) -> List[Dict[str, Any]]:
-    csv_path = 'data/processed/mutual_funds.csv'
-    if not os.path.exists(csv_path):
-        fallback_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), 'data', 'processed', 'mutual_funds.csv')
-        if os.path.exists(fallback_path):
-            csv_path = fallback_path
-        else:
-            return []
+    csv_path = _ROOT / 'data' / 'processed' / 'mutual_funds.csv'
+    if not csv_path.exists():
+        return []
             
     df = pd.read_csv(csv_path)
     filtered = df[df['risk_grade'].str.lower() == req.risk_profile.lower()]

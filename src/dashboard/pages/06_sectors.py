@@ -13,6 +13,7 @@ if str(project_root) not in sys.path:
 from src.dashboard.utils.db import get_sectors, get_ratios, get_pl, get_valuation, get_companies
 
 st.title("Sector Analysis")
+st.caption("⚠️ **Note**: Market Cap and Stock Price data displayed on this page is SIMULATED.")
 
 sectors_df = get_sectors()
 ratios_df = get_ratios()
@@ -31,15 +32,23 @@ latest_pl = pl_df[pl_df['year'] == latest_year] if not pl_df.empty else pd.DataF
 latest_mc = mc_df[mc_df['year'] == latest_year] if not mc_df.empty else pd.DataFrame()
 
 # Build combined sector dataframe
+if 'sectors_df' in locals() and hasattr(sectors_df, 'columns') and 'company_id' in sectors_df.columns: sectors_df['company_id'] = sectors_df['company_id'].astype(str).str.strip().str.upper()
+if 'companies_df' in locals() and hasattr(companies_df, 'columns') and 'company_id' in companies_df.columns: companies_df['company_id'] = companies_df['company_id'].astype(str).str.strip().str.upper()
 df = sectors_df.merge(companies_df[['company_id', 'company_name']], on='company_id')
+if 'df' in locals() and hasattr(df, 'columns') and 'company_id' in df.columns: df['company_id'] = df['company_id'].astype(str).str.strip().str.upper()
+if 'latest_ratios' in locals() and hasattr(latest_ratios, 'columns') and 'company_id' in latest_ratios.columns: latest_ratios['company_id'] = latest_ratios['company_id'].astype(str).str.strip().str.upper()
 df = df.merge(latest_ratios, on='company_id', how='left')
 
 if not latest_pl.empty:
+    if 'df' in locals() and hasattr(df, 'columns') and 'company_id' in df.columns: df['company_id'] = df['company_id'].astype(str).str.strip().str.upper()
+    if 'latest_pl' in locals() and hasattr(latest_pl, 'columns') and 'company_id' in latest_pl.columns: latest_pl['company_id'] = latest_pl['company_id'].astype(str).str.strip().str.upper()
     df = df.merge(latest_pl[['company_id', 'sales']], on='company_id', how='left')
 else:
     df['sales'] = None
 
 if not latest_mc.empty and 'market_cap_crore' in latest_mc.columns:
+    if 'df' in locals() and hasattr(df, 'columns') and 'company_id' in df.columns: df['company_id'] = df['company_id'].astype(str).str.strip().str.upper()
+    if 'latest_mc' in locals() and hasattr(latest_mc, 'columns') and 'company_id' in latest_mc.columns: latest_mc['company_id'] = latest_mc['company_id'].astype(str).str.strip().str.upper()
     df = df.merge(latest_mc[['company_id', 'market_cap_crore']], on='company_id', how='left')
 else:
     df['market_cap_crore'] = None
@@ -67,7 +76,7 @@ if selected_sector:
 
         st.markdown("---")
 
-        # Bubble chart: Revenue vs ROE, size = Market Cap
+        # Bubble chart: Revenue (INR Crore) vs ROE, size = Market Cap (INR Crore)
         plot_data = sector_data.dropna(subset=['sales', 'return_on_equity_pct'])
         if 'market_cap_crore' in plot_data.columns:
             plot_data = plot_data.dropna(subset=['market_cap_crore'])
@@ -91,12 +100,12 @@ if selected_sector:
                 hover_name='company_name',
                 log_x=True,
                 labels={
-                    'sales': 'Revenue (Cr) [Log Scale]',
+                    'sales': 'Revenue (INR Crore) (Cr) [Log Scale]',
                     'return_on_equity_pct': 'ROE (%)',
-                    'market_cap_crore': 'Market Cap (Cr)',
+                    'market_cap_crore': 'Market Cap (INR Crore) (Cr)',
                     'sub_sector': 'Sub Sector'
                 },
-                title="Revenue vs ROE (Bubble Size = Market Cap)",
+                title="Revenue (INR Crore) vs ROE (Bubble Size = Market Cap (INR Crore))",
                 size_max=60
             )
             st.plotly_chart(fig, use_container_width=True)
@@ -107,9 +116,9 @@ if selected_sector:
             'Median ROE (%)': 'return_on_equity_pct',
             'Median ROCE (%)': 'return_on_capital_employed_pct',
             'Median Rev CAGR (%)': 'revenue_cagr_5yr',
-            'Median PAT CAGR (%)': 'pat_cagr_5yr',
+            'Median PAT (INR Crore) CAGR (%)': 'pat_cagr_5yr',
             'Median D/E': 'debt_to_equity',
-            'Median FCF (Cr)': 'free_cash_flow_cr'
+            'Median FCF (INR Crore) (Cr)': 'free_cash_flow_cr'
         }
 
         group_col = 'sub_sector' if 'sub_sector' in sector_data.columns else 'broad_sector'
@@ -147,5 +156,5 @@ if selected_sector:
         comp_display.columns = [c.replace('return_on_equity_pct', 'ROE (%)').replace(
             'return_on_capital_employed_pct', 'ROCE (%)').replace(
             'debt_to_equity', 'D/E').replace('revenue_cagr_5yr', 'Rev CAGR 5Y (%)').replace(
-            'free_cash_flow_cr', 'FCF (Cr)').replace('company_name', 'Company') for c in comp_display.columns]
+            'free_cash_flow_cr', 'FCF (INR Crore) (Cr)').replace('company_name', 'Company') for c in comp_display.columns]
         st.dataframe(comp_display, hide_index=True, use_container_width=True)

@@ -160,11 +160,15 @@ db.sqlite3-journal
 # ── Project: Data Files (raw data stays local, not in VCS) ───────────────────
 data/raw/*
 data/processed/*
-data/db/
+data/db/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/db/.gitkeep
+!data/db/nifty100.db
+!data/processed/mutual_funds.csv
 
 # ── Project: Output & Reports ─────────────────────────────────────────────────
 output/*
 !output/.gitkeep
+!output/pros_cons_generated.csv
+!output/cluster_labels.csv

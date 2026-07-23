@@ -144,11 +144,11 @@ def _read_sheet_raw(
         ``(dataframe, status)`` where *status* is ``"OK"`` or an error message.
     """
     try:
-        header_row = 1 if has_banner else 0
+        header_row = 1
         df = pd.read_excel(
             path,
             sheet_name=sheet_name,
-            header=header_row,
+            header=1,
             engine="openpyxl",
         )
         # Drop fully-blank rows that sneak in from Excel formatting

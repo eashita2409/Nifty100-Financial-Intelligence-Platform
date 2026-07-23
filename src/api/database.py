@@ -1,27 +1,27 @@
 import sqlite3
-from typing import Generator
 from pathlib import Path
+from typing import Generator
+import logging
 
-# Base path for database
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-DB_PATH = PROJECT_ROOT / 'data' / 'db' / 'nifty100.db'
+logger = logging.getLogger(__name__)
 
-def get_db_connection():
-    """
-    Establish a connection to the SQLite database.
-    Sets row_factory to sqlite3.Row for dict-like access.
-    """
-    conn = sqlite3.connect(DB_PATH, check_same_thread=False)
+DB_PATH = Path("data") / "db" / "nifty100.db"
+
+def get_db_connection() -> sqlite3.Connection:
+    if not DB_PATH.exists():
+        raise FileNotFoundError(f"Database not found at {DB_PATH}")
+    conn = sqlite3.connect(str(DB_PATH))
     conn.row_factory = sqlite3.Row
     return conn
 
 def get_db() -> Generator[sqlite3.Connection, None, None]:
-    """
-    FastAPI dependency that yields a database connection and ensures
-    it is closed after the request is complete.
-    """
-    conn = get_db_connection()
+    conn = None
     try:
+        conn = get_db_connection()
         yield conn
+    except Exception as e:
+        logger.error(f"Database connection error: {e}")
+        raise
     finally:
-        conn.close()
+        if conn:
+            conn.close()

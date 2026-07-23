@@ -23,6 +23,8 @@ if companies_df.empty:
 
 # Add sector info for filtering
 if not sectors_df.empty:
+    if 'companies_df' in locals() and hasattr(companies_df, 'columns') and 'company_id' in companies_df.columns: companies_df['company_id'] = companies_df['company_id'].astype(str).str.strip().str.upper()
+    if 'sectors_df' in locals() and hasattr(sectors_df, 'columns') and 'company_id' in sectors_df.columns: sectors_df['company_id'] = sectors_df['company_id'].astype(str).str.strip().str.upper()
     companies_enriched = companies_df.merge(sectors_df, on='company_id', how='left')
     broad_sectors = ['All'] + sorted(companies_enriched['broad_sector'].dropna().unique().tolist())
 else:

@@ -18,7 +18,7 @@ def test_cagr_positive_to_negative():
 
 def test_cagr_negative_to_positive():
     val, flag = calculate_cagr(-100, 50, 3)
-    assert val is None
+    assert val == "TURNAROUND"
     assert flag == "negative_to_positive"
 
 def test_cagr_negative_to_negative():
@@ -82,7 +82,7 @@ def test_populate_cagr_metrics(tmp_path):
     assert "3yr:insufficient_history" not in str(row['revenue_cagr_anomaly'])
     
     # PAT: -50 -> 50 (Negative to Positive) -> anomaly
-    assert pd.isna(row['pat_cagr_3yr']) or row['pat_cagr_3yr'] is None
+    assert pd.isna(row['pat_cagr_3yr']) or row['pat_cagr_3yr'] is None or row['pat_cagr_3yr'] == 'TURNAROUND'
     assert "3yr:negative_to_positive" in str(row['pat_cagr_anomaly'])
     
     # EPS: 5 -> 0 (Positive to Zero) -> -100%

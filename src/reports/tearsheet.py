@@ -185,6 +185,8 @@ def run():
     skipped = []
     
     # Merge datasets to align years
+    if 'pnl' in locals() and hasattr(pnl, 'columns') and 'company_id' in pnl.columns: pnl['company_id'] = pnl['company_id'].astype(str).str.strip().str.upper()
+    if 'bs' in locals() and hasattr(bs, 'columns') and 'company_id' in bs.columns: bs['company_id'] = bs['company_id'].astype(str).str.strip().str.upper()
     master_df = pnl.merge(bs, on=["company_id", "year"], how="outer")\
                    .merge(cf, on=["company_id", "year"], how="outer")\
                    .merge(ratios, on=["company_id", "year"], how="outer")
@@ -224,6 +226,8 @@ def run():
     
     print("Generating sector reports...")
     latest_ratios = ratios.sort_values('year').groupby('company_id').tail(1)
+    if 'latest_ratios' in locals() and hasattr(latest_ratios, 'columns') and 'company_id' in latest_ratios.columns: latest_ratios['company_id'] = latest_ratios['company_id'].astype(str).str.strip().str.upper()
+    if 'sectors' in locals() and hasattr(sectors, 'columns') and 'company_id' in sectors.columns: sectors['company_id'] = sectors['company_id'].astype(str).str.strip().str.upper()
     sector_data = latest_ratios.merge(sectors, on='company_id', how='left')
     
     # 1. Generate for each individual sector (10 reports)

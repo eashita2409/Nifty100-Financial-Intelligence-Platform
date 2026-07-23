@@ -8,6 +8,7 @@ st.set_page_config(
 )
 
 st.title("📊 Nifty 100 Financial Intelligence Platform")
+st.caption("⚠️ **Note**: Market Cap and Stock Price datasets used in this platform are SIMULATED for demonstration purposes.")
 st.markdown("""
 Welcome to the **Nifty 100 Financial Intelligence Platform** — a comprehensive analytics dashboard
 covering all 100 companies in India's premier index.

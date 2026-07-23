@@ -27,8 +27,14 @@ def run_valuation():
     
     conn.close()
     
+    if 'companies' in locals() and hasattr(companies, 'columns') and 'company_id' in companies.columns: companies['company_id'] = companies['company_id'].astype(str).str.strip().str.upper()
+    if 'sectors' in locals() and hasattr(sectors, 'columns') and 'company_id' in sectors.columns: sectors['company_id'] = sectors['company_id'].astype(str).str.strip().str.upper()
     df = companies.merge(sectors, on='company_id', how='left')
+    if 'df' in locals() and hasattr(df, 'columns') and 'company_id' in df.columns: df['company_id'] = df['company_id'].astype(str).str.strip().str.upper()
+    if 'mc_latest' in locals() and hasattr(mc_latest, 'columns') and 'company_id' in mc_latest.columns: mc_latest['company_id'] = mc_latest['company_id'].astype(str).str.strip().str.upper()
     df = df.merge(mc_latest[['company_id', 'market_cap_crore', 'pe_ratio', 'pb_ratio', 'ev_ebitda']], on='company_id', how='left')
+    if 'df' in locals() and hasattr(df, 'columns') and 'company_id' in df.columns: df['company_id'] = df['company_id'].astype(str).str.strip().str.upper()
+    if 'ratios_latest' in locals() and hasattr(ratios_latest, 'columns') and 'company_id' in ratios_latest.columns: ratios_latest['company_id'] = ratios_latest['company_id'].astype(str).str.strip().str.upper()
     df = df.merge(ratios_latest[['company_id', 'free_cash_flow_cr']], on='company_id', how='left')
     
     df['FCF_yield_pct'] = np.where(
@@ -40,6 +46,8 @@ def run_valuation():
     sector_medians = df.groupby('sector')['pe_ratio'].median().reset_index()
     sector_medians.rename(columns={'pe_ratio': 'sector_median_PE'}, inplace=True)
     
+    if 'df' in locals() and hasattr(df, 'columns') and 'company_id' in df.columns: df['company_id'] = df['company_id'].astype(str).str.strip().str.upper()
+    if 'sector_medians' in locals() and hasattr(sector_medians, 'columns') and 'company_id' in sector_medians.columns: sector_medians['company_id'] = sector_medians['company_id'].astype(str).str.strip().str.upper()
     df = df.merge(sector_medians, on='sector', how='left')
     
     df['PE_vs_sector_median_pct'] = np.where(
